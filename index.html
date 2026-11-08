@@ -50,18 +50,9 @@
         word-break: keep-all;
       }
       .footer-brand-mark {
-        position: relative;
-        aspect-ratio: 1108 / 515;
-        overflow: hidden;
-      }
-      .footer-brand-mark img {
-        position: absolute;
-        width: 110.56%;
-        max-width: none;
-        height: auto;
-        transform: translate(-4.33%, -29.31%);
-        /* Keep the original wordmark and render the slogan as readable text. */
-        clip-path: polygon(0 0, 100% 0, 100% 62%, 45% 62%, 45% 100%, 0 100%);
+        filter: url(#footer-logo-colors);
+        /* Hide the small raster slogan, leaving the full circle and wordmark. */
+        clip-path: polygon(0 0, 100% 0, 100% 79%, 45% 79%, 45% 100%, 0 100%);
       }
       @keyframes fadeIn {
         from { opacity: 0; transform: translateY(6px); }
@@ -477,6 +468,13 @@
               </div>
             </div>
           </div>
+          <div id="care-team-summary" class="mt-6 flex flex-wrap items-center justify-between gap-5 rounded-3xl border border-slate-200 bg-white p-6 sm:p-8">
+            <div>
+              <h3 class="text-xl sm:text-2xl font-extrabold text-[#10264d]">케어팀 소개</h3>
+              <p class="mt-2 max-w-2xl text-base leading-relaxed text-slate-600">통합돌봄부, 사무행정부, 운영지원부가 어르신의 돌봄과 생활을 함께 지원합니다.</p>
+            </div>
+            <a href="./care-team.html" class="inline-flex min-h-11 items-center rounded-full bg-[#10264d] px-5 py-2.5 font-bold text-white hover:bg-[#163366] focus-visible:ring-2 focus-visible:ring-amber-600">케어팀 자세히 보기 <span class="ml-2" aria-hidden="true">→</span></a>
+          </div>
         </div>
       </section>
 
@@ -539,6 +537,13 @@
       <!-- ============================================================== -->
       <section id="care-info" class="py-12 bg-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="mb-8 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <h2 class="text-2xl sm:text-4xl font-extrabold text-[#10264d] tracking-tight">요양정보 사전</h2>
+              <p class="mt-2 text-base leading-relaxed text-slate-600">장기요양등급 신청 방법과 보호자가 자주 묻는 질문을 모았습니다.</p>
+            </div>
+            <a href="./care-guide.html" class="inline-flex min-h-11 items-center rounded-full bg-[#10264d] px-5 py-2.5 font-bold text-white hover:bg-[#163366] focus-visible:ring-2 focus-visible:ring-amber-600">요양정보 사전 보기 <span class="ml-2" aria-hidden="true">→</span></a>
+          </div>
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <!-- Card 1: Direct Telephone Consultation -->
             <div class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#0c1e3e] to-[#1a3867] p-8 sm:p-10 text-white shadow-xl flex flex-col justify-between min-h-[260px] group">
@@ -783,6 +788,7 @@
             <p class="text-slate-500 text-sm sm:text-base mt-2 break-keep">
               어르신께 필요한 돌봄과 희망 시기를 미리 정리해 두시면 상담이 더욱 신속하고 원활합니다.
             </p>
+            <a href="tel:15336598" class="mt-5 inline-flex min-h-11 items-center rounded-full bg-[#f2be42] px-5 py-2.5 font-extrabold text-[#10264d] hover:bg-amber-400 focus-visible:ring-2 focus-visible:ring-amber-600">입소·방문 상담 1533-6598</a>
           </div>
 
           <!-- 3 Steps -->
@@ -997,10 +1003,10 @@
               </div>
               <div class="p-5">
                 <h3 class="font-bold text-[#10264d] text-base mb-1 group-hover:text-amber-600 transition-colors">
-                  햇살 가득한 생활실 (2인실/4인실)
+                  생활실 내부
                 </h3>
                 <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed break-keep">
-                  넓은 채광창과 전동 침대, 넉넉한 수납공간을 갖추어 내 집 안방처럼 아늑하고 안전하게 머무실 수 있습니다.
+                  창가 침대와 개인 수납공간을 사진으로 살펴보세요. 이용 가능한 객실 유형은 입소 상담에서 확인하실 수 있습니다.
                 </p>
               </div>
             </div>
@@ -1203,20 +1209,28 @@
     <!-- 12. FOOTER                                                     -->
     <!-- ============================================================== -->
     <footer id="site-footer" class="bg-[#0b1b36] text-white pt-16 pb-12 border-t border-slate-800">
+      <svg width="0" height="0" class="absolute" aria-hidden="true" focusable="false">
+        <filter id="footer-logo-colors" color-interpolation-filters="sRGB">
+          <!-- Extract gold and navy by their red/blue difference. White letters become transparent. -->
+          <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 .953  0 0 0 0 .714  0 0 0 0 .075  1.18 0 -1.18 0 0" result="gold" />
+          <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  -4.9 0 4.9 0 0" result="white" />
+          <feMerge result="wordmark"><feMergeNode in="gold" /><feMergeNode in="white" /></feMerge>
+          <feComposite in="wordmark" in2="SourceAlpha" operator="in" />
+        </filter>
+      </svg>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-slate-800/80">
           <!-- Left: Brand Info -->
           <div class="md:col-span-5 space-y-4">
-            <figure class="w-full max-w-72 rounded-xl bg-white px-4 pt-2 pb-3 text-[#143454]">
-              <div class="footer-brand-mark">
-                <img
-                  src="./public/assets/images/yescare_logo.png"
-                  alt="YesCare!"
-                  width="1225"
-                  height="1225"
-                />
-              </div>
-              <figcaption lang="en" class="text-center text-xs font-extrabold leading-relaxed">
+            <figure class="w-full max-w-[15rem]">
+              <img
+                src="./public/assets/images/yescare_logo_trimmed.png"
+                alt="YesCare!"
+                width="1069"
+                height="472"
+                class="footer-brand-mark block h-auto w-full"
+              />
+              <figcaption lang="en" class="text-xs font-extrabold leading-relaxed text-white">
                 ADULT DAY HEALTH SERVICES
               </figcaption>
             </figure>
@@ -1524,8 +1538,8 @@
         },
         {
           id: 'room',
-          title: '햇살 가득한 생활실 (2인실/4인실)',
-          description: '넓은 채광창과 전동 침대, 넉넉한 수납공간을 갖추어 내 집 안방처럼 아늑하고 안전하게 머무실 수 있습니다.',
+          title: '생활실 내부',
+          description: '창가 침대와 개인 수납공간을 살펴보세요. 이용 가능한 객실 유형은 입소 상담에서 확인하실 수 있습니다.',
           tag: '생활 공간'
         },
         {
