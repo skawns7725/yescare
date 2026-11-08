@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="ko" class="scroll-smooth">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>예스케어 대전 요양원 | 시설 소개 · 입소 상담</title>
-    <meta name="description" content="대전 대덕구 노인요양시설 입소 상담, 24시간 생활 지원 및 간호 재활 서비스 안내" />
-    <meta property="og:title" content="예스케어 대전 요양원 | 시설 소개 · 입소 상담" />
-    <meta property="og:description" content="대전 대덕구 노인요양시설 입소 상담, 24시간 생활 지원 및 간호 재활 서비스 안내" />
+    <title>예스케어 대전 요양원 | 대덕구 상서동 입소 상담</title>
+    <meta name="description" content="대전 대덕구 상서동 예스케어 대전 요양원. 어르신 생활 공간, 돌봄 서비스, 입소 상담과 오시는 길을 확인하세요." />
+    <meta property="og:title" content="예스케어 대전 요양원 | 대덕구 상서동 입소 상담" />
+    <meta property="og:description" content="대전 대덕구 상서동 예스케어 대전 요양원. 어르신 생활 공간, 돌봄 서비스, 입소 상담과 오시는 길을 확인하세요." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/assets/images/facility_0.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -38,9 +38,13 @@
     <style>
       html {
         scroll-behavior: smooth;
+        scroll-padding-top: 5rem;
         font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
         word-break: keep-all;
         overflow-wrap: break-word;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
       }
       .break-keep {
         word-break: keep-all;
@@ -91,53 +95,22 @@
               <span class="text-amber-500 ml-1">대전 요양원</span>
             </span>
             <span class="text-[10px] sm:text-[11px] text-slate-500 tracking-wider font-semibold mt-1 whitespace-nowrap">
-              YesCare! Adult Day Health & Nursing Care
+              대전 대덕구 상서동 노인요양시설
             </span>
           </div>
         </a>
 
         <!-- Desktop Navigation Menu -->
-        <nav class="hidden md:flex items-center gap-2 lg:gap-4 text-sm font-bold text-slate-700 whitespace-nowrap">
-          <a href="#services" class="px-3 py-2 rounded-lg hover:text-[#10264d] hover:bg-slate-100 transition-colors">
-            케어 서비스
-          </a>
-          <a href="#facility-banner" class="px-3 py-2 rounded-lg hover:text-[#10264d] hover:bg-slate-100 transition-colors">
-            생활 공간
-          </a>
-          <a href="#news" class="px-3 py-2 rounded-lg hover:text-[#10264d] hover:bg-slate-100 transition-colors">
-            요양원 소식
-          </a>
-          <a href="#admission" class="px-3 py-2 rounded-lg hover:text-[#10264d] hover:bg-slate-100 transition-colors">
-            입소 안내·FAQ
-          </a>
-          <a href="#location" class="px-3 py-2 rounded-lg hover:text-[#10264d] hover:bg-slate-100 transition-colors">
-            오시는 길
-          </a>
+        <nav aria-label="주 메뉴" class="hidden lg:flex items-center gap-1 xl:gap-4 text-base font-bold text-slate-700 whitespace-nowrap">
+          <a href="#facility-banner" class="px-3 py-3 rounded-lg hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-600">요양원 소개</a>
+          <a href="#services" class="px-3 py-3 rounded-lg hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-600">서비스 안내</a>
+          <a href="#admission" class="px-3 py-3 rounded-lg hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-600">입소 안내</a>
+          <a href="#news" class="px-3 py-3 rounded-lg hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-600">예스케어 소식</a>
+          <a href="#care-info" class="px-3 py-3 rounded-lg hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-600">요양정보</a>
         </nav>
 
         <!-- Right Quick Actions -->
-        <div class="hidden sm:flex items-center gap-3">
-          <button 
-            type="button"
-            onclick="openCalculatorModal()"
-            class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-slate-300 hover:border-amber-500 hover:text-amber-600 text-xs font-bold text-slate-700 transition-colors bg-white shadow-sm"
-          >
-            <svg class="w-3.5 h-3.5 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <rect width="16" height="20" x="4" y="2" rx="2"></rect>
-              <line x1="8" x2="16" y1="6" y2="6"></line>
-              <line x1="16" x2="16" y1="14" y2="14"></line>
-              <line x1="16" x2="16" y1="18" y2="18"></line>
-              <line x1="12" x2="12" y1="14" y2="14"></line>
-              <line x1="12" x2="12" y1="18" y2="18"></line>
-              <line x1="8" x2="8" y1="14" y2="14"></line>
-              <line x1="8" x2="8" y1="18" y2="18"></line>
-              <line x1="8" x2="8" y1="10" y2="10"></line>
-              <line x1="12" x2="12" y1="10" y2="10"></line>
-              <line x1="16" x2="16" y1="10" y2="10"></line>
-            </svg>
-            <span>비용 계산기</span>
-          </button>
-
+        <div class="hidden lg:flex items-center gap-3">
           <a 
             href="tel:15336598" 
             class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#f2be42] hover:bg-amber-400 text-[#10264d] text-xs font-extrabold shadow-sm transition-all active:scale-95 whitespace-nowrap"
@@ -154,8 +127,10 @@
           id="mobile-menu-btn"
           type="button" 
           onclick="toggleMobileMenu()"
-          class="md:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100 focus:outline-none"
+          class="lg:hidden p-3 rounded-xl text-slate-700 hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-600"
           aria-label="메뉴 열기"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
         >
           <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <line x1="4" x2="20" y1="6" y2="6"></line>
@@ -170,46 +145,13 @@
       </div>
 
       <!-- Mobile Dropdown Menu -->
-      <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-3 shadow-lg">
-        <a href="#services" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-100">
-          케어 서비스
-        </a>
-        <a href="#facility-banner" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-100">
-          생활 공간
-        </a>
-        <a href="#news" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-100">
-          요양원 소식
-        </a>
-        <a href="#admission" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-100">
-          입소 안내·FAQ
-        </a>
-        <a href="#location" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-100">
-          오시는 길
-        </a>
-        <div class="pt-3 border-t border-slate-100 flex flex-col gap-2">
-          <button 
-            type="button"
-            onclick="toggleMobileMenu(); openCalculatorModal();"
-            class="w-full py-3 rounded-xl border border-slate-300 text-center text-sm font-bold text-slate-800 bg-slate-50 flex items-center justify-center gap-2"
-          >
-            <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <rect width="16" height="20" x="4" y="2" rx="2"></rect>
-              <line x1="8" x2="16" y1="6" y2="6"></line>
-              <line x1="8" x2="16" y1="10" y2="10"></line>
-            </svg>
-            <span>비용 간편 계산기 열기</span>
-          </button>
-          <a 
-            href="tel:15336598" 
-            class="w-full py-3 rounded-xl bg-[#f2be42] text-center text-sm font-extrabold text-[#10264d] flex items-center justify-center gap-2 shadow-sm"
-          >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            <span>전화 상담 바로 연결 (1533-6598)</span>
-          </a>
-        </div>
-      </div>
+      <nav id="mobile-menu" aria-label="모바일 주 메뉴" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-1 shadow-lg max-h-[calc(100dvh-5rem)] overflow-y-auto">
+        <a href="#facility-banner" onclick="setMobileMenu(false)" class="block px-3 py-3 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-600">요양원 소개</a>
+        <a href="#services" onclick="setMobileMenu(false)" class="block px-3 py-3 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-600">서비스 안내</a>
+        <a href="#admission" onclick="setMobileMenu(false)" class="block px-3 py-3 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-600">입소 안내</a>
+        <a href="#news" onclick="setMobileMenu(false)" class="block px-3 py-3 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-600">예스케어 소식</a>
+        <a href="#care-info" onclick="setMobileMenu(false)" class="block px-3 py-3 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-600">요양정보</a>
+      </nav>
     </header>
 
     <main>
@@ -220,34 +162,35 @@
         <!-- Background Hero Image with Deep Contrast Gradient -->
         <div class="absolute inset-0">
           <img 
-            src="/assets/images/hero_elderly_care_1794119941046.jpg" 
-            alt="예스케어 대전 요양원 케어 모습" 
-            class="w-full h-full object-cover object-center opacity-30 scale-105 transition-transform duration-1000"
+            src="/assets/images/facility_0.jpg"
+            fetchpriority="high"
+            alt="상서동 예스케어 대전 요양원 건물 전경"
+            class="w-full h-full object-cover object-[center_42%] opacity-90"
           />
-          <div class="absolute inset-0 bg-gradient-to-r from-[#0b1b36] via-[#10264d]/90 to-[#10264d]/60"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-[#0b1b36] via-[#10264d]/90 to-[#10264d]/25"></div>
           <div class="absolute inset-0 bg-gradient-to-t from-[#10264d] via-transparent to-transparent"></div>
         </div>
 
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36">
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28">
           <div class="max-w-3xl">
             <!-- Top Badge -->
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-semibold text-amber-300 mb-6">
-              <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-              <span>2026 보건복지부 지정 노인장기요양기관 · 노인전문간호사 총괄</span>
+              <span class="w-2 h-2 rounded-full bg-amber-400" aria-hidden="true"></span>
+              <span>대전 대덕구 상서동 · 노인요양시설</span>
             </div>
 
             <!-- Main Headline -->
             <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.2] text-white break-keep mb-6">
-              어르신의 하루가 더욱 편안하고<br />
+              어르신의 편안한 하루를 함께하는<br class="hidden sm:inline" />
               <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">
-                존중받는 곳, 예스케어 대전 요양원
+                예스케어 대전 요양원
               </span>
             </h1>
 
             <!-- Subtitle -->
             <p class="text-base sm:text-lg lg:text-xl text-slate-200 leading-relaxed font-normal mb-8 max-w-2xl break-keep">
-              24시간 노인전문간호사 상주 생활 밀착 케어와 안락한 채광 생활실,<br class="hidden sm:inline" />
-              가족 안심 열린 소통 시스템으로 어르신의 행복하고 건강한 노후를 함께합니다.
+              어르신이 지내실 생활 공간과 돌봄 서비스를 둘러보세요.
+              입소 가능 여부와 방문 일정은 전화로 안내해 드립니다.
             </p>
 
             <!-- 3 Key Badges -->
@@ -256,20 +199,20 @@
                 <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                 </svg>
-                <span class="font-bold text-white">24시간 전문 간호 & 응급 대응</span>
+                <span class="font-bold text-white">생활·건강 관리</span>
               </div>
               <div class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/15">
                 <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                   <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                 </svg>
-                <span class="font-bold text-white">1·2·4인실 맞춤형 생활실</span>
+                <span class="font-bold text-white">생활실·면회 공간</span>
               </div>
               <div class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/15">
                 <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                   <circle cx="12" cy="12" r="10"></circle>
                   <polyline points="12 6 12 12 14 14"></polyline>
                 </svg>
-                <span class="font-bold text-white">장기요양 1~5등급 입소 상담</span>
+                <span class="font-bold text-white">장기요양 등급·입소 상담</span>
               </div>
             </div>
 
@@ -285,29 +228,12 @@
                 <span>입소 상담 전화 1533-6598</span>
               </a>
 
-              <button 
-                type="button"
-                onclick="openCalculatorModal()"
-                class="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-base border border-white/25 backdrop-blur-md transition-all active:scale-95"
-              >
-                <svg class="w-5 h-5 text-amber-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <rect width="16" height="20" x="4" y="2" rx="2"></rect>
-                  <line x1="8" x2="16" y1="6" y2="6"></line>
-                  <line x1="8" x2="16" y1="10" y2="10"></line>
-                </svg>
-                <span>예상 비용 간편 계산기</span>
-              </button>
-
-              <button 
-                type="button"
-                onclick="openGalleryModal(0)"
-                class="inline-flex items-center gap-2 px-5 py-4 rounded-full text-slate-300 hover:text-white font-bold text-sm transition-colors"
-              >
-                <span>시설 사진 둘러보기</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </button>
+              <a href="#admission" class="inline-flex items-center px-6 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-base border border-white/40 backdrop-blur-md transition-colors">
+                입소 안내
+              </a>
+              <a href="#location" class="inline-flex items-center px-6 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-base border border-white/40 backdrop-blur-md transition-colors">
+                오시는 길
+              </a>
             </div>
           </div>
         </div>
@@ -343,15 +269,15 @@
                   </svg>
                 </div>
                 <h3 class="text-xl font-bold text-[#10264d] mb-3 group-hover:text-amber-600 transition-colors">
-                  24시간 전문 간호 & 응급 케어
+                  건강 확인과 간호 돌봄
                 </h3>
                 <p class="text-slate-600 text-sm leading-relaxed break-keep mb-6">
-                  노인전문간호사 총괄 아래 매일 투약 관리, 혈당·혈압 등 활력징후를 기록하며, 협력병원 촉탁의 정기 방문 진료 및 24시간 응급 이송 네트워크를 완비했습니다.
+                  복용 중인 약과 건강 상태를 상담 시 알려주세요. 어르신에게 필요한 건강 확인과 일상 돌봄을 함께 살펴봅니다.
                 </p>
               </div>
               <div class="pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-semibold text-slate-500">
-                <span>간호사 상주 · 촉탁의 회진</span>
-                <span class="text-amber-500 font-bold">24H Care</span>
+                <span>건강 상태 · 복약 상담</span>
+                <span class="text-amber-500 font-bold">Nursing Care</span>
               </div>
             </div>
 
@@ -465,7 +391,7 @@
                   입소 상담 & 복지 행정 연계
                 </h3>
                 <p class="text-slate-600 text-sm leading-relaxed break-keep mb-6">
-                  장기요양등급 인정 신청 대행 절차부터 본인부담금 감경 요건, 입소 구비 서류 확인까지 전담 사회복지사가 친절하게 1:1 상담을 도와드립니다.
+                  장기요양등급 인정 신청 절차와 입소에 필요한 서류를 안내합니다. 비용과 본인부담금은 상담 시 확인하실 수 있습니다.
                 </p>
               </div>
               <div class="pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-semibold text-slate-500">
@@ -505,8 +431,7 @@
                 </h2>
                 <p class="text-amber-50 text-sm sm:text-base leading-relaxed mb-8 max-w-xl break-keep">
                   어르신의 안전과 편안한 휴식을 최우선으로 고려한 채광 가득한 생활실,<br class="hidden sm:inline" />
-                  가족과 따뜻한 온기를 나눌 수 있는 전용 면회실과 함께<br class="hidden sm:inline" />
-                  24시간 철저한 낙상 예방 및 소방 안전 케어 시스템을 완비했습니다.
+                  가족과 이야기를 나눌 수 있는 면회 공간을 사진으로 먼저 만나보세요.
                 </p>
 
                 <div class="flex flex-wrap items-center gap-3">
@@ -559,9 +484,9 @@
             <!-- 01 -->
             <div class="p-6 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-amber-400 hover:shadow-lg transition-all">
               <span class="text-3xl font-black text-amber-500/80 font-mono">01</span>
-              <h3 class="text-lg font-bold text-[#10264d] mt-3 mb-2">노인전문간호사 총괄</h3>
+              <h3 class="text-lg font-bold text-[#10264d] mt-3 mb-2">건강 상태에 맞춘 돌봄</h3>
               <p class="text-xs sm:text-sm text-slate-600 leading-relaxed break-keep">
-                만성 질환 관리, 욕창 및 낙상 방지 등 전문 간호 인력이 24시간 어르신의 신체 리듬을 철저히 모니터링합니다.
+                상담을 통해 어르신의 건강 상태와 평소 생활에 필요한 돌봄을 확인합니다.
               </p>
             </div>
 
@@ -579,7 +504,7 @@
               <span class="text-3xl font-black text-amber-500/80 font-mono">03</span>
               <h3 class="text-lg font-bold text-[#10264d] mt-3 mb-2">열린 소통과 가족 안심</h3>
               <p class="text-xs sm:text-sm text-slate-600 leading-relaxed break-keep">
-                정기적인 안부 전화와 생활 모습 사진 전송, 프라이빗 가족 면회실 운영으로 언제든 부모님과 소통할 수 있습니다.
+                가족 면회 공간을 둘러보고, 면회 일정과 생활 소식을 확인하는 방법을 방문 상담에서 문의해 주세요.
               </p>
             </div>
 
@@ -588,7 +513,7 @@
               <span class="text-3xl font-black text-amber-500/80 font-mono">04</span>
               <h3 class="text-lg font-bold text-[#10264d] mt-3 mb-2">편리한 도심 접근성</h3>
               <p class="text-xs sm:text-sm text-slate-600 leading-relaxed break-keep">
-                신탄진IC 및 신탄진역 인접 대전 대덕구 상서동에 위치하여 가족분들이 주말이나 퇴근길에 방문하시기 매우 편리합니다.
+                대전 대덕구 상서동 덕암로162번길 10에 있습니다. 방문 전 오시는 길과 일정을 확인해 주세요.
               </p>
             </div>
           </div>
@@ -598,7 +523,7 @@
       <!-- ============================================================== -->
       <!-- 6. DUAL ACTION CALLOUT CARDS                                   -->
       <!-- ============================================================== -->
-      <section class="py-12 bg-slate-100">
+      <section id="care-info" class="py-12 bg-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <!-- Card 1: Direct Telephone Consultation -->
@@ -608,7 +533,7 @@
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                   </svg>
-                  <span>24시간 언제든 친절 상담</span>
+                  <span>상서동 예스케어 대전 요양원</span>
                 </div>
                 <h3 class="text-2xl sm:text-3xl font-black text-white mb-2">
                   입소 전화 상담
@@ -647,14 +572,13 @@
                     <line x1="8" x2="16" y1="6" y2="6"></line>
                     <line x1="8" x2="16" y1="10" y2="10"></line>
                   </svg>
-                  <span>투명한 2026 장기요양 수가 기준</span>
+                  <span>요양정보 · 2026년 시설급여 기준</span>
                 </div>
                 <h3 class="text-2xl sm:text-3xl font-black text-white mb-2">
                   비용 간편 계산기
                 </h3>
                 <p class="text-slate-300 text-sm leading-relaxed max-w-md break-keep">
-                  장기요양 1~5등급 본인부담률(일반 20%, 감경 8~12%, 수급자)에 따른<br class="hidden sm:inline" />
-                  예상 월 본인부담금과 식사 비용을 10초 만에 간편히 계산해 보세요.
+                  장기요양등급과 본인부담률에 따른 30일 시설급여 부담금 예시를 확인하세요. 식사비와 기타 비급여 비용은 상담 시 안내해 드립니다.
                 </p>
               </div>
 
@@ -664,13 +588,13 @@
                   onclick="openCalculatorModal()"
                   class="text-base sm:text-lg font-bold text-amber-300 hover:text-amber-200 underline underline-offset-4"
                 >
-                  지금 바로 예상 비용 계산하기
+                  급여 본인부담금 계산기 열기
                 </button>
                 <button 
                   type="button"
                   onclick="openCalculatorModal()"
                   class="w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center shadow-lg transition-transform group-hover:scale-110"
-                  aria-label="비용 계산기 열기"
+                  aria-label="급여 본인부담금 계산"
                 >
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
                     <polyline points="9 18 15 12 9 6"></polyline>
@@ -726,10 +650,10 @@
                   <span class="text-slate-400 font-mono">2026.11.06</span>
                 </div>
                 <h3 class="font-bold text-slate-900 group-hover:text-amber-600 transition-colors text-base line-clamp-2 mb-2 break-keep">
-                  11월 6일 일상이야기 - 어르신들과 함께한 따뜻한 하루
+                  11월 6일 일상 이야기
                 </h3>
                 <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed break-keep">
-                  맑은 가을 햇살 아래 어르신들과 도란도란 이야기를 나누며 햇볕을 쬐고 산책하는 일상을 전해드립니다.
+                  공식 블로그에서 요양원의 일상 소식을 확인하세요.
                 </p>
               </div>
               <div class="pt-4 mt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-amber-600">
@@ -755,10 +679,10 @@
                   <span class="text-slate-400 font-mono">2026.11.06</span>
                 </div>
                 <h3 class="font-bold text-slate-900 group-hover:text-amber-600 transition-colors text-base line-clamp-2 mb-2 break-keep">
-                  11월 6일 소근육 강화 및 인지 작업치료 프로그램
+                  11월 6일 작업치료
                 </h3>
                 <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed break-keep">
-                  손 근육과 뇌 감각을 자극하는 색채 스케치와 인지 조작 활동으로 어르신들의 집중력과 활기를 북돋았습니다.
+                  공식 블로그에서 이날의 작업치료 소식을 확인하세요.
                 </p>
               </div>
               <div class="pt-4 mt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-amber-600">
@@ -781,13 +705,13 @@
                   <span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 font-bold">
                     식단 안내
                   </span>
-                  <span class="text-slate-400 font-mono">2026.11.04</span>
+                  <span class="text-slate-400 font-mono">2026.11.06</span>
                 </div>
                 <h3 class="font-bold text-slate-900 group-hover:text-amber-600 transition-colors text-base line-clamp-2 mb-2 break-keep">
                   2026년 11월 둘째 주 영양 식단표 안내
                 </h3>
                 <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed break-keep">
-                  영양사가 엄선한 제철 식재료와 소화가 편한 부드러운 조리법으로 차려낸 주간 식단표를 확인해 보세요.
+                  공식 블로그에 게시된 주간 식단표를 확인하세요.
                 </p>
               </div>
               <div class="pt-4 mt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-amber-600">
@@ -800,7 +724,7 @@
 
             <!-- News 4 -->
             <a 
-              href="https://blog.naver.com/yescare2026_new/224386557078" 
+              href="https://blog.naver.com/yescare2026_new/224459239066"
               target="_blank" 
               rel="noopener noreferrer"
               class="rounded-3xl p-6 bg-slate-50 border border-slate-200/80 hover:border-amber-400 hover:shadow-lg transition-all flex flex-col justify-between group"
@@ -808,15 +732,15 @@
               <div>
                 <div class="flex items-center justify-between mb-3 text-xs">
                   <span class="px-2.5 py-1 rounded-full bg-purple-100 text-purple-800 font-bold">
-                    요양 정보
+                    일상 이야기
                   </span>
                   <span class="text-slate-400 font-mono">2026.10.30</span>
                 </div>
                 <h3 class="font-bold text-slate-900 group-hover:text-amber-600 transition-colors text-base line-clamp-2 mb-2 break-keep">
-                  장기요양등급 신청 절차 및 입소 서류 완벽 안내
+                  10월 30일 일상 이야기
                 </h3>
                 <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed break-keep">
-                  노인장기요양보험 등급 판정 방법부터 본인부담금 감경 요건, 입소 시 준비해야 할 서류를 알기 쉽게 정리했습니다.
+                  공식 블로그에서 10월의 요양원 소식을 확인하세요.
                 </p>
               </div>
               <div class="pt-4 mt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-amber-600">
@@ -840,7 +764,7 @@
               입소 절차 안내
             </span>
             <h2 class="text-2xl sm:text-4xl font-extrabold text-[#10264d] tracking-tight mt-1 break-keep">
-              방문 전, 세 가지만 확인하세요
+              입소 상담부터 시설 방문까지
             </h2>
             <p class="text-slate-500 text-sm sm:text-base mt-2 break-keep">
               어르신께 필요한 돌봄과 희망 시기를 미리 정리해 두시면 상담이 더욱 신속하고 원활합니다.
@@ -858,7 +782,7 @@
                 입소 가능 여부 및 등급 상담
               </h3>
               <p class="text-xs sm:text-sm text-slate-600 leading-relaxed break-keep">
-                어르신의 건강 상태, 장기요양등급(1~5등급), 희망 입소 시기와 필요한 간호 돌봄 항목을 유선(1533-6598)으로 1차 상담합니다.
+                어르신의 건강 상태와 장기요양등급, 희망 입소 시기를 정리한 후 <a href="tel:15336598" class="font-bold underline">1533-6598</a>로 문의해 주세요.
               </p>
             </div>
 
@@ -871,7 +795,7 @@
                 예상 비용 산출 및 서류 확인
               </h3>
               <p class="text-xs sm:text-sm text-slate-600 leading-relaxed break-keep">
-                본인부담률(일반 20%, 경감 8~12%, 기초수급자)에 따른 월간 예상 비용과 입소 시 필요한 필수 서류 및 검진 항목을 안내합니다.
+                시설급여 이용 가능 여부와 식사비를 포함한 월 예상 비용을 확인하세요. 입소 준비 서류와 필요한 검진도 함께 문의할 수 있습니다.
               </p>
             </div>
 
@@ -913,7 +837,7 @@
                   </svg>
                 </button>
                 <div class="faq-content hidden px-6 pb-5 pt-2 text-xs sm:text-sm text-slate-600 leading-relaxed bg-slate-50/50 border-t border-slate-100 break-keep">
-                  네, 가능합니다. 등급 신청 절차가 처음이신 보호자분들을 위해 국민건강보험공단 장기요양인정 신청 절차 및 소견서 발급 방법을 친절하게 안내해 드립니다. 입소 희망 시기에 맞춰 미리 상담을 받아두시면 등급 판정 즉시 신속하게 입소하실 수 있습니다.
+                  네, 가능합니다. 등급 신청 절차가 처음이신 보호자분들을 위해 국민건강보험공단 장기요양인정 신청 절차 및 소견서 발급 방법을 친절하게 안내해 드립니다. 입소 가능 여부는 시설급여 인정 여부와 희망 일정에 따라 상담 후 확인하실 수 있습니다.
                 </div>
               </div>
 
@@ -932,7 +856,7 @@
                   </svg>
                 </button>
                 <div class="faq-content hidden px-6 pb-5 pt-2 text-xs sm:text-sm text-slate-600 leading-relaxed bg-slate-50/50 border-t border-slate-100 break-keep">
-                  요양원 비용은 국민건강보험공단에서 지원하는 노인장기요양보험 급여비용과 비급여비용(식사비, 간식비, 상급침실료 등)으로 구성됩니다. 장기요양 1~5등급에 따라 본인부담률(일반 20%, 경감대상자 8% 또는 12%, 기초생활수급자 0%)이 적용되며, 30일 기준 본인부담금과 식대를 합쳐 월 약 60만 원 ~ 80만 원대(일반 기준) 수준입니다. 본 페이지 상단의 [비용 간편 계산기]에서 상세 견적을 10초 만에 확인하실 수 있습니다.
+                  시설급여 본인부담금과 식사비·간식비 등 비급여 항목을 합산합니다. <a href="#care-info" class="font-bold underline">요양정보</a>에서 시설급여 부담금 예시를 확인하고, 실제 적용 수가와 비급여 항목은 상담 시 확인해 주세요.
                 </div>
               </div>
 
@@ -963,14 +887,14 @@
                   onclick="toggleFaq(3)"
                 >
                   <span class="font-bold text-sm sm:text-base text-slate-800 pr-4 break-keep">
-                    Q. 입소 시 준비해야 할 서류와 필수 건강진단서는 무엇인가요?
+                    Q. 입소 시 어떤 서류와 검진을 준비하나요?
                   </span>
                   <svg class="w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <polyline points="6 9 12 15 18 9"></polyline>
                   </svg>
                 </button>
                 <div class="faq-content hidden px-6 pb-5 pt-2 text-xs sm:text-sm text-slate-600 leading-relaxed bg-slate-50/50 border-t border-slate-100 break-keep">
-                  장기요양인정서 사본, 표준장기요양이용계획서 사본, 어르신 및 보호자 신분증, 가족관계증명서, 주민등록등본이 필요합니다. 또한 단체 생활 안전을 위해 입소 전 감염성 질환 검사(결핵 흉부 X-ray, B형간염, 매독, 전염성 피부질환 검사 등)가 포함된 건강진단서를 제출해 주셔야 합니다.
+                  장기요양인정서 등 가지고 계신 서류를 상담 시 알려주세요. 필요한 서류와 검진 항목, 제출 시점은 입소 상담에서 확인하실 수 있습니다.
                 </div>
               </div>
 
@@ -989,7 +913,7 @@
                   </svg>
                 </button>
                 <div class="faq-content hidden px-6 pb-5 pt-2 text-xs sm:text-sm text-slate-600 leading-relaxed bg-slate-50/50 border-t border-slate-100 break-keep">
-                  노인전문간호사를 중심으로 한 간호팀이 매일 처방 약 복용을 철저히 확인하고 활력징후를 기록합니다. 격주로 협력병원 촉탁의사가 정기 방문 진료를 시행하며, 응급 상황 발생 시 24시간 연계 지정 종합병원 응급의료센터로 신속하게 이송 조치합니다.
+                  입소 상담 시 복용 중인 약과 치료 일정을 알려주세요. 복약 관리 방식과 응급 상황 대응 절차는 어르신의 상태에 맞춰 상담하실 수 있습니다.
                 </div>
               </div>
             </div>
@@ -1110,7 +1034,7 @@
                   예스케어 대전 요양원 전경
                 </h3>
                 <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed break-keep">
-                  대전 대덕구 덕암로에 위치하여 접근성이 뛰어나며 푸른 유리 외벽과 최신 소방·안전 설비를 완비했습니다.
+                  대전 대덕구 상서동 덕암로162번길 10에 있는 요양원 외관입니다.
                 </p>
               </div>
             </div>
@@ -1165,7 +1089,7 @@
                     <a href="tel:15336598" class="text-base font-bold text-amber-600 hover:underline">
                       1533-6598
                     </a>
-                    <p class="text-xs text-slate-500 mt-0.5">상담 시간: 평일 09:00 ~ 18:00 (주말 사전 예약)</p>
+                    <p class="text-xs text-slate-500 mt-0.5">상담 및 방문 가능 시간은 전화로 확인해 주세요.</p>
                   </div>
                 </div>
 
@@ -1180,9 +1104,7 @@
                   <div>
                     <h3 class="font-bold text-slate-900 text-base">교통 및 주차</h3>
                     <p class="text-xs text-slate-600 mt-1 break-keep">
-                      • 경부고속도로 신탄진IC에서 차량 5분<br />
-                      • 경부선 신탄진역에서 택시 기본요금 (약 5분)<br />
-                      • 요양원 건물 지상 전용 주차장 완비 (무료 주차)
+                      아래 지도에서 출발지 기준 경로를 확인하세요. 주차 안내는 방문 전에 전화로 문의해 주세요.
                     </p>
                   </div>
                 </div>
@@ -1190,12 +1112,12 @@
 
               <div class="flex gap-3">
                 <a 
-                  href="https://map.naver.com/p/search/%EB%8C%80%EC%A0%84%EA%B4%91%EC%97%AD%EC%8B%9C%20%EB%8C%80%EB%8D%95%EA%B5%AC%20%EB%8D%95%EC%95%94%EB%A1%9C162%EB%B2%88%EA%B8%B8%2010" 
+                  href="https://map.naver.com/p/entry/place/1486703042"
                   target="_blank" 
                   rel="noopener noreferrer"
-                  class="flex-1 py-3 px-4 rounded-2xl bg-[#03c75a] hover:bg-[#02b350] text-white font-bold text-center text-sm shadow-sm transition-all"
+                  class="flex-1 py-3 px-4 rounded-2xl bg-[#087a49] hover:bg-[#06643c] text-white font-bold text-center text-sm shadow-sm transition-all"
                 >
-                  네이버 지도에서 보기
+                  네이버 지도
                 </a>
                 <a 
                   href="tel:15336598" 
@@ -1224,7 +1146,7 @@
                 </h3>
                 <p class="text-xs sm:text-sm text-slate-200 leading-relaxed break-keep">
                   대전 대덕구 덕암로162번길 10 (상서동).<br />
-                  편리한 방문을 위해 사전에 전화(1533-6598)로 방문 시간을 예약해 주시면 따뜻한 차와 함께 시설을 정성껏 안내해 드립니다.
+                  생활실과 면회 공간을 보고 싶으시면 전화로 방문 일정을 문의해 주세요.
                 </p>
               </div>
             </div>
@@ -1233,7 +1155,7 @@
       </section>
 
       <!-- ============================================================== -->
-      <!-- 11. PARTNER & CERTIFICATION BANNER                             -->
+      <!-- 11. FACILITY INFORMATION LINKS                             -->
       <!-- ============================================================== -->
       <section class="py-8 bg-slate-100 border-y border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1244,15 +1166,15 @@
             </div>
             <div class="flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-blue-500"></span>
-              <span>영업배상책임보험 가입 시설</span>
+              <span>대전 대덕구 상서동</span>
             </div>
             <div class="flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-              <span>소방·재난안전시설 정기점검 필</span>
+              <a class="underline underline-offset-4" href="#admission">입소 절차 확인</a>
             </div>
             <div class="flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-purple-500"></span>
-              <span>대전광역시 대덕구 인가 전문 요양시설</span>
+              <a class="underline underline-offset-4" href="#location">방문 위치 확인</a>
             </div>
           </div>
         </div>
@@ -1281,23 +1203,19 @@
                   <span class="text-amber-400">대전 요양원</span>
                 </span>
                 <span class="text-[10px] text-slate-400 tracking-wider">
-                  YesCare! Adult Day Health & Nursing Care
+                  대전 대덕구 상서동 노인요양시설
                 </span>
               </div>
             </div>
             <p class="text-xs text-slate-300 leading-relaxed max-w-sm break-keep">
-              노인전문간호사 총괄 24시간 생활 밀착 케어,<br class="hidden sm:inline" />
-              안전하고 쾌적한 1·2·4인실 맞춤형 생활 환경과<br class="hidden sm:inline" />
-              다양한 인지·여가·재활 프로그램을 제공하는 전문 노인요양시설입니다.
+              대전 대덕구 상서동에서 어르신의 일상생활을 지원하는 노인요양시설입니다.
             </p>
           </div>
 
           <!-- Center: Operating Hours -->
           <div class="md:col-span-4 space-y-2 text-xs text-slate-300">
             <div class="font-bold text-amber-400 text-sm mb-1">상담 및 운영 안내</div>
-            <div>상담시간: 평일 09:00 ~ 18:00 (점심시간 12:00 ~ 13:00)</div>
-            <div>주말 및 공휴일: 사전 전화 예약 시 방문 상담 가능</div>
-            <div>소방 및 재난 안전 정기 점검 필 · 배상책임보험 가입 시설</div>
+            <div>상담 및 방문 가능 시간은 전화로 확인해 주세요.</div>
           </div>
 
           <!-- Right: Contact -->
@@ -1362,7 +1280,7 @@
             </div>
             <div>
               <h3 class="font-bold text-base text-white">2026 장기요양 본인부담금 간편 계산기</h3>
-              <p class="text-[11px] text-slate-300">등급 및 감경 혜택에 따른 예상 월 비용을 즉시 산출합니다.</p>
+              <p class="text-[11px] text-slate-300">30일 기준 시설급여 본인부담금 예시입니다.</p>
             </div>
           </div>
           <button 
@@ -1390,6 +1308,7 @@
               <button type="button" onclick="selectGrade(4)" class="calc-grade-btn py-2.5 rounded-xl border font-bold transition-all text-xs border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-grade="4">4등급</button>
               <button type="button" onclick="selectGrade(5)" class="calc-grade-btn py-2.5 rounded-xl border font-bold transition-all text-xs border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-grade="5">5등급</button>
             </div>
+            <p class="mt-2 text-xs text-slate-600">3~5등급은 시설급여 이용이 인정된 경우에 적용됩니다.</p>
           </div>
 
           <!-- Rate Selector -->
@@ -1398,33 +1317,20 @@
             <div class="grid grid-cols-2 gap-2" id="rate-buttons">
               <button type="button" onclick="selectRate(0.20)" class="calc-rate-btn p-3 rounded-xl border text-left font-bold transition-all border-amber-500 bg-amber-50 text-amber-900 shadow-sm" data-rate="0.20">
                 <div class="text-xs">일반 (20%)</div>
-                <div class="text-[10px] text-slate-500 font-normal">건강보험 일반 대상자</div>
+                <div class="text-[10px] text-slate-500 font-normal">일반 시설급여 부담률</div>
               </button>
               <button type="button" onclick="selectRate(0.12)" class="calc-rate-btn p-3 rounded-xl border text-left font-bold transition-all border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-rate="0.12">
                 <div class="text-xs">감경 대상 (12%)</div>
-                <div class="text-[10px] text-slate-500 font-normal">보험료 25~50% 이하</div>
+                <div class="text-[10px] text-slate-500 font-normal">12% 적용 대상자</div>
               </button>
               <button type="button" onclick="selectRate(0.08)" class="calc-rate-btn p-3 rounded-xl border text-left font-bold transition-all border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-rate="0.08">
                 <div class="text-xs">감경 대상 (8%)</div>
-                <div class="text-[10px] text-slate-500 font-normal">차상위·의료급여 2종</div>
+                <div class="text-[10px] text-slate-500 font-normal">8% 적용 대상자</div>
               </button>
               <button type="button" onclick="selectRate(0.00)" class="calc-rate-btn p-3 rounded-xl border text-left font-bold transition-all border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-rate="0.00">
-                <div class="text-xs">기초생활수급자 (0%)</div>
-                <div class="text-[10px] text-slate-500 font-normal">급여비용 100% 국비 지원</div>
+                <div class="text-xs">본인부담 면제 (0%)</div>
+                <div class="text-[10px] text-slate-500 font-normal">급여 본인부담 면제 대상자</div>
               </button>
-            </div>
-          </div>
-
-          <!-- Meals Option -->
-          <div>
-            <div class="flex items-center justify-between mb-2">
-              <label class="font-bold text-slate-800">3. 하루 식사 횟수</label>
-              <span class="text-xs text-slate-500">끼당 3,500원 (간식비 포함 1일 12,000원)</span>
-            </div>
-            <div class="grid grid-cols-3 gap-2" id="meal-buttons">
-              <button type="button" onclick="selectMeals(3)" class="calc-meal-btn py-2 rounded-xl border font-bold transition-all text-xs border-amber-500 bg-amber-50 text-amber-900 shadow-sm" data-meals="3">3식 (기본)</button>
-              <button type="button" onclick="selectMeals(2)" class="calc-meal-btn py-2 rounded-xl border font-bold transition-all text-xs border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-meals="2">2식</button>
-              <button type="button" onclick="selectMeals(1)" class="calc-meal-btn py-2 rounded-xl border font-bold transition-all text-xs border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-meals="1">1식</button>
             </div>
           </div>
 
@@ -1432,30 +1338,20 @@
           <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/90 space-y-3">
             <div class="flex justify-between items-center text-xs text-slate-600">
               <span>장기요양 급여 총액 (30일 기준)</span>
-              <span id="calc-total-benefit" class="font-mono font-bold text-slate-800">2,612,400원</span>
+              <span id="calc-total-benefit" class="font-mono font-bold text-slate-800">2,792,100원</span>
             </div>
             <div class="flex justify-between items-center text-xs text-slate-600">
-              <span>국민건강보험공단 지원금</span>
-              <span id="calc-gov-benefit" class="font-mono font-bold text-emerald-600">- 2,089,920원</span>
+              <span>급여비용 중 지원분</span>
+              <span id="calc-gov-benefit" class="font-mono font-bold text-emerald-600">- 2,233,680원</span>
             </div>
             <div class="flex justify-between items-center text-xs text-slate-600">
               <span>급여 본인부담금</span>
-              <span id="calc-copay" class="font-mono font-bold text-slate-800">522,480원</span>
-            </div>
-            <div class="flex justify-between items-center text-xs text-slate-600 pb-2 border-b border-slate-200">
-              <span>비급여 식대 및 간식비 (30일)</span>
-              <span id="calc-meals-cost" class="font-mono font-bold text-slate-800">360,000원</span>
-            </div>
-            <div class="flex justify-between items-center pt-1">
-              <span class="font-black text-slate-900 text-sm sm:text-base">예상 월 본인부담금 합계</span>
-              <span id="calc-final-total" class="text-xl sm:text-2xl font-black text-amber-600 font-mono">
-                882,480원
-              </span>
+              <span id="calc-copay" class="font-mono font-bold text-slate-800">558,420원</span>
             </div>
           </div>
 
           <p class="text-[11px] text-slate-500 leading-normal break-keep">
-            * 상기 금액은 2026년 국민건강보험공단 노인요양시설 수가 고시 기준에 따른 예상 금액이며, 상급침실(1인실 등) 이용 여부나 처방 약제비 등에 따라 실제 청구 금액과 약간의 차이가 발생할 수 있습니다.
+            <a href="https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000285470" target="_blank" rel="noopener noreferrer" class="font-bold underline">보건복지부 고시 제44조</a>의 입소자 2.1명당 요양보호사 1명 이상 기준으로 계산한 예시입니다. 실제 적용 수가와 식사비 등 비급여 비용은 요양원에 문의해 주세요.
           </p>
         </div>
 
@@ -1475,7 +1371,7 @@
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
             </svg>
-            <span>상담사 전화로 상세 견적 확인 (1533-6598)</span>
+            <span>시설 비용 문의 1533-6598</span>
           </a>
         </div>
       </div>
@@ -1563,18 +1459,19 @@
       // Mobile Navigation Menu Toggle
       // -------------------------------------------------------------
       function toggleMobileMenu() {
+        setMobileMenu(document.getElementById('mobile-menu').classList.contains('hidden'));
+      }
+
+      function setMobileMenu(isOpen) {
+        const button = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
         const hamburgerIcon = document.getElementById('hamburger-icon');
         const closeIcon = document.getElementById('close-icon');
-        if (menu.classList.contains('hidden')) {
-          menu.classList.remove('hidden');
-          hamburgerIcon.classList.add('hidden');
-          closeIcon.classList.remove('hidden');
-        } else {
-          menu.classList.add('hidden');
-          hamburgerIcon.classList.remove('hidden');
-          closeIcon.classList.add('hidden');
-        }
+        menu.classList.toggle('hidden', !isOpen);
+        hamburgerIcon.classList.toggle('hidden', isOpen);
+        closeIcon.classList.toggle('hidden', !isOpen);
+        button.setAttribute('aria-expanded', String(isOpen));
+        button.setAttribute('aria-label', isOpen ? '메뉴 닫기' : '메뉴 열기');
       }
 
       // -------------------------------------------------------------
@@ -1629,7 +1526,7 @@
         {
           id: 'building',
           title: '예스케어 대전 요양원 전경',
-          description: '대전 대덕구 덕암로에 위치하여 접근성이 뛰어나며, 푸른 유리 외벽과 최신 소방·안전 설비를 완비했습니다.',
+          description: '대전 대덕구 덕암로162번길 10에 있는 예스케어 대전 요양원의 건물 전경입니다.',
           imageUrl: '/assets/images/facility_0.jpg',
           tag: '외관 전경'
         }
@@ -1690,16 +1587,15 @@
       // -------------------------------------------------------------
       // Daily Long-term Care Benefit Fees by Grade (2026 National Health Insurance Standards)
       const dailyBenefitFees = {
-        1: 87080,
-        2: 80720,
-        3: 75780,
-        4: 75780,
-        5: 75780
+        1: 93070,
+        2: 86340,
+        3: 81540,
+        4: 81540,
+        5: 81540
       };
 
       let selectedGrade = 1;
       let selectedRate = 0.20;
-      let selectedMeals = 3;
 
       function openCalculatorModal() {
         document.getElementById('calculator-modal').classList.remove('hidden');
@@ -1736,43 +1632,26 @@
         calculateCosts();
       }
 
-      function selectMeals(meals) {
-        selectedMeals = meals;
-        document.querySelectorAll('.calc-meal-btn').forEach(btn => {
-          if (parseInt(btn.dataset.meals) === meals) {
-            btn.className = 'calc-meal-btn py-2 rounded-xl border font-bold transition-all text-xs border-amber-500 bg-amber-50 text-amber-900 shadow-sm';
-          } else {
-            btn.className = 'calc-meal-btn py-2 rounded-xl border font-bold transition-all text-xs border-slate-200 bg-white text-slate-700 hover:bg-slate-50';
-          }
-        });
-        calculateCosts();
-      }
-
       function calculateCosts() {
         const days = 30;
-        const dailyFee = dailyBenefitFees[selectedGrade] || 87080;
+        const dailyFee = dailyBenefitFees[selectedGrade];
         const totalBenefit = dailyFee * days;
         const copay = Math.round(totalBenefit * selectedRate);
         const govBenefit = totalBenefit - copay;
 
-        // Meal computation: 3,500 KRW per meal + 1,500 KRW snack fee
-        const mealPrice = 3500;
-        const snackPrice = 1500;
-        const dailyMealCost = (selectedMeals * mealPrice) + snackPrice;
-        const monthlyMealCost = dailyMealCost * days;
-
-        const grandTotal = copay + monthlyMealCost;
-
         document.getElementById('calc-total-benefit').textContent = totalBenefit.toLocaleString() + '원';
         document.getElementById('calc-gov-benefit').textContent = '- ' + govBenefit.toLocaleString() + '원';
         document.getElementById('calc-copay').textContent = copay.toLocaleString() + '원';
-        document.getElementById('calc-meals-cost').textContent = monthlyMealCost.toLocaleString() + '원';
-        document.getElementById('calc-final-total').textContent = grandTotal.toLocaleString() + '원';
       }
 
       // Keyboard navigation (ESC closes modal, Arrow keys in gallery)
       window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
+          const menuButton = document.getElementById('mobile-menu-btn');
+          if (menuButton.getAttribute('aria-expanded') === 'true' && menuButton.offsetWidth > 0) {
+            setMobileMenu(false);
+            menuButton.focus();
+          }
           closeCalculatorModal();
           closeGalleryModal();
         } else if (e.key === 'ArrowLeft') {
