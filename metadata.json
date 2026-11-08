@@ -1,0 +1,6 @@
+{
+  "name": "예스케어 대전 요양원",
+  "description": "대전 대덕구 노인요양시설 입소 상담, 24시간 생활 지원 및 간호 재활 서비스 안내",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
