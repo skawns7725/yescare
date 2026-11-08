@@ -49,6 +49,20 @@
       .break-keep {
         word-break: keep-all;
       }
+      .footer-brand-mark {
+        position: relative;
+        aspect-ratio: 1108 / 515;
+        overflow: hidden;
+      }
+      .footer-brand-mark img {
+        position: absolute;
+        width: 110.56%;
+        max-width: none;
+        height: auto;
+        transform: translate(-4.33%, -29.31%);
+        /* Keep the original wordmark and render the slogan as readable text. */
+        clip-path: polygon(0 0, 100% 0, 100% 62%, 45% 62%, 45% 100%, 0 100%);
+      }
       @keyframes fadeIn {
         from { opacity: 0; transform: translateY(6px); }
         to { opacity: 1; transform: translateY(0); }
@@ -1188,29 +1202,25 @@
     <!-- ============================================================== -->
     <!-- 12. FOOTER                                                     -->
     <!-- ============================================================== -->
-    <footer class="bg-[#0b1b36] text-white pt-16 pb-12 border-t border-slate-800">
+    <footer id="site-footer" class="bg-[#0b1b36] text-white pt-16 pb-12 border-t border-slate-800">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-slate-800/80">
           <!-- Left: Brand Info -->
           <div class="md:col-span-5 space-y-4">
-            <div class="flex items-center gap-3">
-              <div class="h-10 w-auto flex items-center justify-center">
-                <img 
-                  src="./public/assets/images/yescare_logo_white_trimmed.png"
-                  alt="YesCare! 예스케어 대전 요양원 로고" 
-                  class="h-9 w-auto object-contain"
+            <figure class="w-full max-w-72 rounded-xl bg-white px-4 pt-2 pb-3 text-[#143454]">
+              <div class="footer-brand-mark">
+                <img
+                  src="./public/assets/images/yescare_logo.png"
+                  alt="YesCare!"
+                  width="1225"
+                  height="1225"
                 />
               </div>
-              <div class="flex flex-col">
-                <span class="text-xl font-black text-white tracking-tight flex items-center gap-1.5">
-                  <span>예스케어</span>
-                  <span class="text-amber-400">대전 요양원</span>
-                </span>
-                <span class="text-[10px] text-slate-400 tracking-wider">
-                  대전 대덕구 상서동 노인요양시설
-                </span>
-              </div>
-            </div>
+              <figcaption lang="en" class="text-center text-xs font-extrabold leading-relaxed">
+                ADULT DAY HEALTH SERVICES
+              </figcaption>
+            </figure>
+            <p class="text-xl font-black tracking-tight">예스케어 <span class="text-amber-400">대전 요양원</span></p>
             <p class="text-xs text-slate-300 leading-relaxed max-w-sm break-keep">
               대전 대덕구 상서동에서 어르신의 일상생활을 지원하는 노인요양시설입니다.
             </p>
