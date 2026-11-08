@@ -49,6 +49,63 @@
       .break-keep {
         word-break: keep-all;
       }
+      .site-nav-heading {
+        display: flex;
+        min-height: 2.75rem;
+        align-items: center;
+        justify-content: space-between;
+        gap: .5rem;
+        border-radius: .5rem;
+        padding: .5rem .75rem;
+        font-weight: 700;
+      }
+      summary.site-nav-heading {
+        cursor: pointer;
+        list-style: none;
+      }
+      summary.site-nav-heading::-webkit-details-marker { display: none; }
+      summary.site-nav-heading::after {
+        width: .45rem;
+        height: .45rem;
+        border-right: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        content: "";
+        transform: translateY(-.1rem) rotate(45deg);
+      }
+      details[open] > .site-nav-heading::after {
+        transform: translateY(.1rem) rotate(225deg);
+      }
+      .site-nav-heading:hover,
+      details[open] > .site-nav-heading,
+      .site-nav-links a:hover {
+        background: #f1f5f9;
+      }
+      .site-nav-heading:focus-visible,
+      .site-nav-links a:focus-visible {
+        outline: 2px solid #b45309;
+        outline-offset: -2px;
+      }
+      .site-nav-links { padding: .25rem .5rem; }
+      .site-nav-links a {
+        display: flex;
+        min-height: 2.75rem;
+        align-items: center;
+        border-radius: .375rem;
+        padding: .5rem .75rem;
+      }
+      @media (min-width: 1024px) {
+        #site-nav details { position: relative; }
+        .site-nav-links {
+          position: absolute;
+          top: 100%;
+          inset-inline-end: 0;
+          min-width: 12rem;
+          border: 1px solid #e2e8f0;
+          border-radius: .75rem;
+          background: white;
+          box-shadow: 0 8px 22px #10264d1f;
+        }
+      }
       .footer-brand-mark {
         filter: url(#footer-logo-colors);
         /* Hide the small raster slogan, leaving the full circle and wordmark. */
@@ -105,28 +162,6 @@
           </div>
         </a>
 
-        <!-- Desktop Navigation Menu -->
-        <nav aria-label="주 메뉴" class="hidden lg:flex items-center gap-1 xl:gap-4 text-base font-bold text-slate-700 whitespace-nowrap">
-          <a href="#news" class="px-3 py-3 rounded-lg hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-600">최신 소식</a>
-          <a href="#facility-banner" class="px-3 py-3 rounded-lg hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-600">요양원 소개</a>
-          <a href="#services" class="px-3 py-3 rounded-lg hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-600">서비스 안내</a>
-          <a href="#admission" class="px-3 py-3 rounded-lg hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-600">입소 안내</a>
-          <a href="#care-info" class="px-3 py-3 rounded-lg hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-600">요양정보</a>
-        </nav>
-
-        <!-- Right Quick Actions -->
-        <div class="hidden lg:flex items-center gap-3">
-          <a 
-            href="tel:15336598" 
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#f2be42] hover:bg-amber-400 text-[#10264d] text-xs font-extrabold shadow-sm transition-all active:scale-95 whitespace-nowrap"
-          >
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            <span>상담 1533-6598</span>
-          </a>
-        </div>
-
         <!-- Mobile Menu Toggle Button -->
         <button 
           id="mobile-menu-btn"
@@ -134,7 +169,7 @@
           onclick="toggleMobileMenu()"
           class="lg:hidden p-3 rounded-xl text-slate-700 hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-600"
           aria-label="메뉴 열기"
-          aria-controls="mobile-menu"
+          aria-controls="site-nav"
           aria-expanded="false"
         >
           <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -147,16 +182,49 @@
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
-      </div>
 
-      <!-- Mobile Dropdown Menu -->
-      <nav id="mobile-menu" aria-label="모바일 주 메뉴" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-1 shadow-lg max-h-[calc(100dvh-5rem)] overflow-y-auto">
-        <a href="#news" onclick="setMobileMenu(false)" class="block px-3 py-3 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-600">최신 소식</a>
-        <a href="#facility-banner" onclick="setMobileMenu(false)" class="block px-3 py-3 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-600">요양원 소개</a>
-        <a href="#services" onclick="setMobileMenu(false)" class="block px-3 py-3 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-600">서비스 안내</a>
-        <a href="#admission" onclick="setMobileMenu(false)" class="block px-3 py-3 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-600">입소 안내</a>
-        <a href="#care-info" onclick="setMobileMenu(false)" class="block px-3 py-3 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-600">요양정보</a>
-      </nav>
+        <nav id="site-nav" aria-label="주 메뉴" class="absolute inset-x-0 top-full hidden max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-slate-200 bg-white px-4 py-3 text-base text-slate-800 shadow-lg lg:static lg:flex lg:max-h-none lg:items-center lg:gap-1 lg:overflow-visible lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none lg:whitespace-nowrap xl:gap-4">
+          <a href="#news" class="site-nav-heading">최신 소식</a>
+          <details name="site-category">
+            <summary class="site-nav-heading">요양원 소개</summary>
+            <ul class="site-nav-links">
+              <li><a href="#facility-banner">시설 안내</a></li>
+              <li><a href="#facility">공간별 시설 사진</a></li>
+              <li><a href="./care-team.html">케어팀 소개</a></li>
+            </ul>
+          </details>
+          <a href="#services" class="site-nav-heading">서비스 안내</a>
+          <details name="site-category">
+            <summary class="site-nav-heading">입소 안내</summary>
+            <ul class="site-nav-links">
+              <li><a href="#admission">입소 절차·준비</a></li>
+              <li><a href="#care-cost">시설급여 비용 예시</a></li>
+              <li><a href="#faq-container">입소 전 자주 묻는 질문</a></li>
+              <li><a href="#location">오시는 길</a></li>
+            </ul>
+          </details>
+          <details name="site-category">
+            <summary class="site-nav-heading">요양정보</summary>
+            <ul class="site-nav-links">
+              <li><a href="./care-guide.html">요양정보 사전</a></li>
+              <li><a href="#care-cost">시설급여 비용 예시</a></li>
+            </ul>
+          </details>
+        </nav>
+
+        <!-- Right Quick Actions -->
+        <div class="hidden lg:flex items-center gap-3">
+          <a
+            href="tel:15336598"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#f2be42] hover:bg-amber-400 text-[#10264d] text-xs font-extrabold shadow-sm transition-all active:scale-95 whitespace-nowrap"
+          >
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <span>상담 1533-6598</span>
+          </a>
+        </div>
+      </div>
     </header>
 
     <main>
@@ -1107,23 +1175,56 @@
     <!-- ============================================================== -->
     <script>
       // -------------------------------------------------------------
-      // Mobile Navigation Menu Toggle
+      // Responsive site navigation
       // -------------------------------------------------------------
+      const siteNav = document.getElementById('site-nav');
+      const menuButton = document.getElementById('mobile-menu-btn');
+      const mainHeader = document.getElementById('main-header');
+
       function toggleMobileMenu() {
-        setMobileMenu(document.getElementById('mobile-menu').classList.contains('hidden'));
+        setMobileMenu(siteNav.classList.contains('hidden'));
       }
 
       function setMobileMenu(isOpen) {
-        const button = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
         const hamburgerIcon = document.getElementById('hamburger-icon');
         const closeIcon = document.getElementById('close-icon');
-        menu.classList.toggle('hidden', !isOpen);
+        siteNav.classList.toggle('hidden', !isOpen);
         hamburgerIcon.classList.toggle('hidden', isOpen);
         closeIcon.classList.toggle('hidden', !isOpen);
-        button.setAttribute('aria-expanded', String(isOpen));
-        button.setAttribute('aria-label', isOpen ? '메뉴 닫기' : '메뉴 열기');
+        menuButton.setAttribute('aria-expanded', String(isOpen));
+        menuButton.setAttribute('aria-label', isOpen ? '메뉴 닫기' : '메뉴 열기');
+        if (!isOpen) siteNav.querySelector('details[open]')?.removeAttribute('open');
       }
+
+      siteNav.addEventListener('click', (event) => {
+        const link = event.target.closest('a[href]');
+        if (!link || event.defaultPrevented || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+        setMobileMenu(false);
+        const href = link.getAttribute('href');
+        if (href.startsWith('#')) {
+          const destination = document.getElementById(href.slice(1));
+          if (destination) {
+            destination.setAttribute('tabindex', '-1');
+            destination.focus({ preventScroll: true });
+          }
+        }
+      });
+
+      siteNav.addEventListener('focusout', (event) => {
+        const category = event.target.closest('details[open]');
+        if (category && !siteNav.contains(event.relatedTarget)) category.open = false;
+      });
+
+      function dismissNavOutsideHeader(event) {
+        if (mainHeader.contains(event.target)) return;
+        if (menuButton.getAttribute('aria-expanded') === 'true' || siteNav.querySelector('details[open]')) {
+          setMobileMenu(false);
+        }
+      }
+
+      document.addEventListener('click', dismissNavOutsideHeader);
+      document.addEventListener('focusin', dismissNavOutsideHeader);
+      window.matchMedia('(min-width: 1024px)').addEventListener('change', () => setMobileMenu(false));
 
       // -------------------------------------------------------------
       // FAQ Accordion Toggle
@@ -1295,13 +1396,19 @@
         document.getElementById('calc-copay').textContent = copay.toLocaleString() + '원';
       }
 
-      // Keyboard navigation (ESC closes modal, Arrow keys in gallery)
+      // Keyboard shortcuts for navigation and photo gallery
       window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-          const menuButton = document.getElementById('mobile-menu-btn');
+          const category = siteNav.querySelector('details[open]');
+          if (category) {
+            category.open = false;
+            category.querySelector('summary').focus();
+            return;
+          }
           if (menuButton.getAttribute('aria-expanded') === 'true' && menuButton.offsetWidth > 0) {
             setMobileMenu(false);
             menuButton.focus();
+            return;
           }
           closeCalculatorModal();
           closeGalleryModal();
