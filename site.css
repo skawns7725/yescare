@@ -282,3 +282,20 @@
 .gallery-thumbnails button[aria-current] { border-color: #f2be42; opacity: 1; }
 .gallery-thumbnails button:focus-visible { outline: 2px solid white; outline-offset: 2px; }
 .gallery-thumbnails img { width: 100%; height: 100%; object-fit: cover; }
+
+.facility-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .75rem;
+}
+@media (min-width: 640px) {
+  .facility-gallery-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+@media (min-width: 1080px) {
+  .facility-gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  }
+}
