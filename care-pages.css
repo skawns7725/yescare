@@ -17,24 +17,13 @@ a { color: inherit; }
   margin-inline: auto;
 }
 
-.site-bar {
-  border-bottom: 1px solid #dce4ef;
-  background: #fff;
-}
-
-.site-bar .page-width, .actions {
+.actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: .75rem 1rem;
 }
 
-.site-bar .page-width {
-  justify-content: space-between;
-  padding-block: .85rem;
-}
-
-.site-name { font-weight: 800; text-decoration: none; }
 .hero { padding-block: clamp(2.5rem, 7vw, 5rem); background: #10264d; color: #fff; }
 .hero p { max-width: 42rem; margin: .65rem 0 0; }
 .hero .label { margin: 0; color: #f2be42; font-weight: 800; }
