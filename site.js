@@ -1,3 +1,5 @@
+import { initNews } from './news.js';
+
 const groups = [
   { label: '요양원 소개', items: [
     ['facility-banner', '시설 소개'],
@@ -185,21 +187,4 @@ window.addEventListener('hashchange', () => {
   if (!staticPage && !new URLSearchParams(window.location.search).has('page')) renderPage();
 });
 
-const filters = document.querySelector('.news-filters');
-if (filters) {
-  const posts = [...document.querySelectorAll('.news-list [data-topic]')];
-  filters.hidden = false;
-  filters.addEventListener('click', event => {
-    const filter = event.target.closest('button[data-filter]');
-    if (!filter) return;
-    for (const button of filters.querySelectorAll('button')) {
-      button.setAttribute('aria-pressed', String(button === filter));
-    }
-    let count = 0;
-    for (const post of posts) {
-      post.hidden = filter.dataset.filter !== 'all' && post.dataset.topic !== filter.dataset.filter;
-      if (!post.hidden) count += 1;
-    }
-    document.querySelector('#news-status').textContent = filter.textContent + ' 소식 ' + count + '건';
-  });
-}
+initNews();

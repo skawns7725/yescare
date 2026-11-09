@@ -118,6 +118,7 @@
             <button type="button" data-filter="all" aria-pressed="true">전체</button>
             <button type="button" data-filter="daily" aria-pressed="false">일상</button>
             <button type="button" data-filter="therapy" aria-pressed="false">작업치료</button>
+            <button type="button" data-filter="health" aria-pressed="false">건강·돌봄</button>
             <button type="button" data-filter="meal" aria-pressed="false">식단</button>
           </div>
           <ul class="news-list">
@@ -149,7 +150,15 @@
                 <span aria-hidden="true">↗</span>
               </a>
             </li>
+            <li data-topic="health">
+              <a href="https://blog.naver.com/yescare2026_new/224464368976">
+                <time datetime="2026-11-04"><strong>04</strong>2026.11</time>
+                <span><strong>11월 4일 건강과 돌봄 소식</strong><small>건강·돌봄</small></span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </li>
           </ul>
+          <p id="news-empty" class="mt-3 text-sm text-slate-600" hidden>선택한 주제의 최근 소식이 없습니다.</p>
           <p class="sr-only" id="news-status" role="status"></p>
         </div>
         <aside class="home-contact" data-home aria-labelledby="home-contact-title">
@@ -232,7 +241,7 @@
 
           <div class="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
             <!-- Facility 1: Lobby -->
-            <div class="relative group rounded-3xl overflow-hidden bg-slate-50 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all"
+            <div data-gallery-tag="방문 공간" class="relative group rounded-3xl overflow-hidden bg-slate-50 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all"
             >
               <div class="relative aspect-[4/3] overflow-hidden">
                 <img
@@ -256,7 +265,7 @@
             </div>
 
             <!-- Facility 2: Room -->
-            <div class="relative group rounded-3xl overflow-hidden bg-slate-50 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all"
+            <div data-gallery-tag="생활 공간" class="relative group rounded-3xl overflow-hidden bg-slate-50 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all"
             >
               <div class="relative aspect-[4/3] overflow-hidden">
                 <img
@@ -280,7 +289,7 @@
             </div>
 
             <!-- Facility 3: Visiting Room -->
-            <div class="relative group rounded-3xl overflow-hidden bg-slate-50 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all"
+            <div data-gallery-tag="방문 공간" class="relative group rounded-3xl overflow-hidden bg-slate-50 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all"
             >
               <div class="relative aspect-[4/3] overflow-hidden">
                 <img
@@ -304,7 +313,7 @@
             </div>
 
             <!-- Facility 4: Building Exterior -->
-            <div class="relative group rounded-3xl overflow-hidden bg-slate-50 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all"
+            <div data-gallery-tag="외관" class="relative group rounded-3xl overflow-hidden bg-slate-50 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all"
             >
               <div class="relative aspect-[4/3] overflow-hidden">
                 <img
@@ -327,6 +336,98 @@
                 class="absolute inset-0 rounded-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-amber-700"></button>
             </div>
           </div>
+          <p data-home class="mt-5">
+            <a href="./index.html#facility" data-detail-link class="inline-flex min-h-11 items-center font-bold underline underline-offset-4">시설 사진 10장 모두 보기 <span class="ml-2" aria-hidden="true">→</span></a>
+          </p>
+
+          <section data-detail="facility" aria-labelledby="visit-living" class="mt-9">
+            <h2 id="visit-living" class="text-xl sm:text-2xl font-extrabold mb-4">방문과 생활 공간</h2>
+            <div class="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
+            <div data-gallery-tag="방문 공간" class="relative group rounded-3xl overflow-hidden bg-slate-50 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all">
+              <div class="relative aspect-[4/3] overflow-hidden">
+                <img src="./public/assets/images/facility-office.jpg" alt="1층 사무실" loading="lazy" decoding="async"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <span aria-hidden="true" class="absolute bottom-2 right-2 grid h-8 w-8 place-items-center rounded-full bg-white text-lg font-bold text-[#10264d] shadow-sm">＋</span>
+              </div>
+              <div class="p-3 sm:p-4">
+                <h3 class="font-bold text-[#10264d] mb-1">1층 사무실</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">로비에서 이어지는 안내 데스크와 사무 공간</p>
+              </div>
+              <button type="button" onclick="openGalleryModal(4)" aria-label="1층 사무실 사진 확대"
+                class="absolute inset-0 rounded-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-amber-700"></button>
+            </div>
+            <div data-gallery-tag="방문 공간" class="relative group rounded-3xl overflow-hidden bg-slate-50 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all">
+              <div class="relative aspect-[4/3] overflow-hidden">
+                <img src="./public/assets/images/facility-visiting-room-wide.jpg" alt="면회실 전경" loading="lazy" decoding="async"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <span aria-hidden="true" class="absolute bottom-2 right-2 grid h-8 w-8 place-items-center rounded-full bg-white text-lg font-bold text-[#10264d] shadow-sm">＋</span>
+              </div>
+              <div class="p-3 sm:p-4">
+                <h3 class="font-bold text-[#10264d] mb-1">면회실 전경</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">가족이 마주 앉을 수 있는 원형 테이블과 면회 공간</p>
+              </div>
+              <button type="button" onclick="openGalleryModal(5)" aria-label="면회실 전경 사진 확대"
+                class="absolute inset-0 rounded-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-amber-700"></button>
+            </div>
+            <div data-gallery-tag="생활 공간" class="relative group rounded-3xl overflow-hidden bg-slate-50 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all">
+              <div class="relative aspect-[4/3] overflow-hidden">
+                <img src="./public/assets/images/facility-second-floor-hall.jpg" alt="2층 엘리베이터 앞 복도" loading="lazy" decoding="async"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <span aria-hidden="true" class="absolute bottom-2 right-2 grid h-8 w-8 place-items-center rounded-full bg-white text-lg font-bold text-[#10264d] shadow-sm">＋</span>
+              </div>
+              <div class="p-3 sm:p-4">
+                <h3 class="font-bold text-[#10264d] mb-1">2층 엘리베이터 앞 복도</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">엘리베이터에서 생활 공간으로 이어지는 복도</p>
+              </div>
+              <button type="button" onclick="openGalleryModal(6)" aria-label="2층 엘리베이터 앞 복도 사진 확대"
+                class="absolute inset-0 rounded-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-amber-700"></button>
+            </div>
+            <div data-gallery-tag="생활 공간" class="relative group rounded-3xl overflow-hidden bg-slate-50 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all">
+              <div class="relative aspect-[4/3] overflow-hidden">
+                <img src="./public/assets/images/facility-bedside.jpg" alt="생활실 창가 침상" loading="lazy" decoding="async"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <span aria-hidden="true" class="absolute bottom-2 right-2 grid h-8 w-8 place-items-center rounded-full bg-white text-lg font-bold text-[#10264d] shadow-sm">＋</span>
+              </div>
+              <div class="p-3 sm:p-4">
+                <h3 class="font-bold text-[#10264d] mb-1">생활실 창가 침상</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">창가 침대 옆 수납장과 침상 사이의 커튼</p>
+              </div>
+              <button type="button" onclick="openGalleryModal(7)" aria-label="생활실 창가 침상 사진 확대"
+                class="absolute inset-0 rounded-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-amber-700"></button>
+            </div>
+            </div>
+          </section>
+          <section data-detail="facility" aria-labelledby="care-spaces" class="mt-9">
+            <h2 id="care-spaces" class="text-xl sm:text-2xl font-extrabold mb-4">돌봄 공간</h2>
+            <div class="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
+            <div data-gallery-tag="돌봄 공간" class="relative group rounded-3xl overflow-hidden bg-slate-50 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all">
+              <div class="relative aspect-[4/3] overflow-hidden">
+                <img src="./public/assets/images/facility-therapy-room.jpg" alt="치료실" loading="lazy" decoding="async"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <span aria-hidden="true" class="absolute bottom-2 right-2 grid h-8 w-8 place-items-center rounded-full bg-white text-lg font-bold text-[#10264d] shadow-sm">＋</span>
+              </div>
+              <div class="p-3 sm:p-4">
+                <h3 class="font-bold text-[#10264d] mb-1">치료실</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">치료용 침대와 장비가 배치된 별도 공간</p>
+              </div>
+              <button type="button" onclick="openGalleryModal(8)" aria-label="치료실 사진 확대"
+                class="absolute inset-0 rounded-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-amber-700"></button>
+            </div>
+            <div data-gallery-tag="돌봄 공간" class="relative group rounded-3xl overflow-hidden bg-slate-50 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all">
+              <div class="relative aspect-[4/3] overflow-hidden">
+                <img src="./public/assets/images/facility-nursing-meeting.jpg" alt="간호사 회의실" loading="lazy" decoding="async"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <span aria-hidden="true" class="absolute bottom-2 right-2 grid h-8 w-8 place-items-center rounded-full bg-white text-lg font-bold text-[#10264d] shadow-sm">＋</span>
+              </div>
+              <div class="p-3 sm:p-4">
+                <h3 class="font-bold text-[#10264d] mb-1">간호사 회의실</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">간호팀이 회의하는 테이블과 수납공간</p>
+              </div>
+              <button type="button" onclick="openGalleryModal(9)" aria-label="간호사 회의실 사진 확대"
+                class="absolute inset-0 rounded-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-amber-700"></button>
+            </div>
+            </div>
+          </section>
         </div>
       </section>
 
@@ -889,12 +990,12 @@
     <!-- ============================================================== -->
     <!-- 14. MODAL: FACILITY PHOTO GALLERY LIGHTBOX                     -->
     <!-- ============================================================== -->
-    <div id="gallery-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+    <div id="gallery-modal" role="dialog" aria-modal="true" aria-labelledby="gallery-title" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
       <!-- Backdrop -->
       <div class="fixed inset-0 bg-black/85 backdrop-blur-md" onclick="closeGalleryModal()"></div>
 
       <!-- Modal Content Container -->
-      <div class="relative w-full max-w-4xl bg-slate-900 rounded-3xl shadow-2xl overflow-hidden z-10 animate-fade-in flex flex-col border border-slate-700">
+      <div class="relative w-full max-w-4xl max-h-full overflow-y-auto bg-slate-900 rounded-3xl shadow-2xl overflow-hidden z-10 animate-fade-in flex flex-col border border-slate-700">
         <!-- Top Bar -->
         <div class="px-6 py-4 flex items-center justify-between border-b border-slate-800 text-white">
           <div>
@@ -915,7 +1016,7 @@
         </div>
 
         <!-- Main Photo Viewer with Arrows -->
-        <div class="relative h-[400px] sm:h-[500px] bg-black flex items-center justify-center overflow-hidden">
+        <div class="relative h-[min(50dvh,400px)] sm:h-[min(56dvh,500px)] shrink-0 bg-black flex items-center justify-center overflow-hidden">
           <img 
             id="gallery-main-image" 
             src="./public/assets/images/facility_4.jpg"
@@ -953,7 +1054,7 @@
           <p id="gallery-desc" class="text-sm text-slate-300 leading-relaxed break-keep mb-4"></p>
           
           <!-- Thumbnails Strip -->
-          <div class="grid grid-cols-4 gap-3" id="gallery-thumbs">
+          <div class="gallery-thumbnails" id="gallery-thumbs" aria-label="시설 사진 선택" role="group">
             <!-- Thumbs generated by script -->
           </div>
         </div>
@@ -984,35 +1085,13 @@
       // -------------------------------------------------------------
       // Facility Photo Lightbox Data & Logic
       // -------------------------------------------------------------
-      const facilityGallery = [
-        {
-          id: 'lobby',
-          title: '1층 로비 & 안내 데스크',
-          description: '따뜻한 우드 톤의 쾌적한 안내 공간으로, 어르신과 가족분들이 처음 맞이하는 편안한 쉼터입니다.',
-          tag: '공용 공간'
-        },
-        {
-          id: 'room',
-          title: '생활실 내부',
-          description: '창가 침대와 개인 수납공간을 살펴보세요. 이용 가능한 객실 유형은 입소 상담에서 확인하실 수 있습니다.',
-          tag: '생활 공간'
-        },
-        {
-          id: 'visiting',
-          title: '가족 면회실',
-          description: '가족들이 방문하여 편안하게 대화하고 추억을 나눌 수 있도록 정갈한 테이블과 의자를 배치하였습니다.',
-          tag: '면회 공간'
-        },
-        {
-          id: 'building',
-          title: '예스케어 대전 요양원 전경',
-          description: '대전 대덕구 덕암로162번길 10에 있는 예스케어 대전 요양원의 건물 전경입니다.',
-          tag: '외관 전경'
-        }
-      ].map(photo => ({
-        ...photo,
-        imageUrl: document.getElementById('facility-image-' + photo.id).src
+      const facilityGallery = Array.from(document.querySelectorAll('#facility [data-gallery-tag]'), card => ({
+        title: card.querySelector('h3').textContent.trim(),
+        description: card.querySelector('p').textContent.trim(),
+        tag: card.dataset.galleryTag,
+        imageUrl: card.querySelector('img').src
       }));
+      const galleryThumbnails = document.getElementById('gallery-thumbs');
 
       let currentGalleryIndex = 0;
       let galleryTrigger = null;
@@ -1020,9 +1099,9 @@
       function openGalleryModal(index) {
         currentGalleryIndex = index || 0;
         galleryTrigger = document.activeElement;
-        updateGalleryUI();
         const gallery = document.getElementById('gallery-modal');
         gallery.classList.remove('hidden');
+        updateGalleryUI();
         document.body.classList.add('overflow-hidden');
         gallery.querySelector('button').focus();
       }
@@ -1049,27 +1128,32 @@
       function updateGalleryUI() {
         const item = facilityGallery[currentGalleryIndex];
         document.getElementById('gallery-title').textContent = item.title;
-        document.getElementById('gallery-tag').textContent = item.tag;
+        document.getElementById('gallery-tag').textContent = item.tag + ' · ' + (currentGalleryIndex + 1) + ' / ' + facilityGallery.length;
         document.getElementById('gallery-desc').textContent = item.description;
         document.getElementById('gallery-main-image').src = item.imageUrl;
         document.getElementById('gallery-main-image').alt = item.title;
 
-        // Render Thumbnails
-        const thumbsContainer = document.getElementById('gallery-thumbs');
-        thumbsContainer.innerHTML = '';
-        facilityGallery.forEach((photo, idx) => {
-          const btn = document.createElement('button');
-          btn.type = 'button';
-          btn.className = `relative h-14 sm:h-16 rounded-xl overflow-hidden border-2 transition-all ${
-            idx === currentGalleryIndex ? 'border-amber-400 scale-95 ring-2 ring-amber-400/50' : 'border-transparent opacity-60 hover:opacity-100'
-          }`;
-          btn.onclick = () => {
-            currentGalleryIndex = idx;
-            updateGalleryUI();
-          };
-          btn.innerHTML = `<img src="${photo.imageUrl}" alt="${photo.title}" class="w-full h-full object-cover">`;
-          thumbsContainer.appendChild(btn);
-        });
+        if (!galleryThumbnails.children.length) {
+          facilityGallery.forEach((photo, idx) => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.setAttribute('aria-label', photo.title);
+            const image = document.createElement('img');
+            image.src = photo.imageUrl;
+            image.alt = '';
+            image.loading = 'lazy';
+            button.appendChild(image);
+            button.onclick = () => {
+              currentGalleryIndex = idx;
+              updateGalleryUI();
+            };
+            galleryThumbnails.appendChild(button);
+          });
+        }
+        for (const button of galleryThumbnails.children) button.removeAttribute('aria-current');
+        const current = galleryThumbnails.children[currentGalleryIndex];
+        current.setAttribute('aria-current', 'true');
+        galleryThumbnails.scrollLeft = current.offsetLeft - (galleryThumbnails.clientWidth - current.offsetWidth) / 2;
       }
 
       // -------------------------------------------------------------
@@ -1139,15 +1223,25 @@
           if (e.defaultPrevented) return;
           closeCalculatorModal();
           closeGalleryModal();
-        } else if (e.key === 'ArrowLeft') {
-          const gallery = document.getElementById('gallery-modal');
-          if (!gallery.classList.contains('hidden')) {
-            prevGalleryImage();
-          }
-        } else if (e.key === 'ArrowRight') {
-          const gallery = document.getElementById('gallery-modal');
-          if (!gallery.classList.contains('hidden')) {
-            nextGalleryImage();
+          return;
+        }
+        const gallery = document.getElementById('gallery-modal');
+        if (gallery.classList.contains('hidden')) return;
+
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+          e.preventDefault();
+          if (e.key === 'ArrowLeft') prevGalleryImage();
+          else nextGalleryImage();
+        } else if (e.key === 'Tab') {
+          const buttons = gallery.querySelectorAll('button');
+          const first = buttons[0];
+          const last = buttons[buttons.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
           }
         }
       });
