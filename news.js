@@ -1,4 +1,4 @@
-const feedUrl = 'https://raw.githubusercontent.com/skawns7725/yescare/yescare-news/news.json';
+const configUrl = new URL('./public/news-config.json', import.meta.url);
 const postUrl = 'https://blog.naver.com/yescare2026_new/';
 
 function newsRow(post, topicLabel) {
@@ -44,11 +44,17 @@ export function initNews() {
     if (news.hidden || requested) return;
     requested = true;
     try {
-      const response = await fetch(feedUrl, {
+      const options = {
         credentials: 'omit',
         referrerPolicy: 'no-referrer',
         signal: AbortSignal.timeout(6000),
-      });
+      };
+      const config = await fetch(configUrl, options);
+      if (!config.ok) return;
+      const { repository } = await config.json();
+      if (typeof repository !== 'string' || !/^[A-Za-z0-9-]+\/(?!\.{1,2}$)[A-Za-z0-9_.-]+$/.test(repository)) return;
+      const feedUrl = 'https://raw.githubusercontent.com/' + repository + '/yescare-news/news.json';
+      const response = await fetch(feedUrl, options);
       if (!response.ok) return;
       const items = await response.json();
       if (!Array.isArray(items)) return;
