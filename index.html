@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="ko" class="scroll-smooth">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>예스케어 대전 요양원 | 시설 소개 · 입소 상담</title>
-    <meta name="description" content="대전 대덕구 노인요양시설 입소 상담, 24시간 생활 지원 및 간호 재활 서비스 안내" />
-    <meta property="og:title" content="예스케어 대전 요양원 | 시설 소개 · 입소 상담" />
-    <meta property="og:description" content="대전 대덕구 노인요양시설 입소 상담, 24시간 생활 지원 및 간호 재활 서비스 안내" />
+    <title>예스케어 대전 요양원 | 대덕구 상서동 입소 상담</title>
+    <meta name="description" content="대전 대덕구 상서동 예스케어 대전 요양원. 어르신 생활 공간, 돌봄 서비스, 입소 상담과 오시는 길을 확인하세요." />
+    <meta property="og:title" content="예스케어 대전 요양원 | 대덕구 상서동 입소 상담" />
+    <meta property="og:description" content="대전 대덕구 상서동 예스케어 대전 요양원. 어르신 생활 공간, 돌봄 서비스, 입소 상담과 오시는 길을 확인하세요." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/assets/images/facility_0.jpg" />
+    <meta property="og:image" content="./public/assets/images/facility_0.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <!-- Pretendard Web Font CDN -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
@@ -35,15 +35,26 @@
         }
       }
     </script>
+    <link rel="stylesheet" href="./site.css" />
+    <script type="module" src="./site.js"></script>
     <style>
       html {
         scroll-behavior: smooth;
+        scroll-padding-top: 5rem;
         font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
         word-break: keep-all;
         overflow-wrap: break-word;
       }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+      }
       .break-keep {
         word-break: keep-all;
+      }
+      .footer-brand-mark {
+        filter: url(#footer-logo-colors);
+        /* Hide the small raster slogan, leaving the full circle and wordmark. */
+        clip-path: polygon(0 0, 100% 0, 100% 79%, 45% 79%, 45% 100%, 0 100%);
       }
       @keyframes fadeIn {
         from { opacity: 0; transform: translateY(6px); }
@@ -71,830 +82,344 @@
   </head>
   <body class="bg-[#f8f9fa] text-slate-800 antialiased selection:bg-amber-100 selection:text-amber-900 font-sans">
 
-    <!-- ============================================================== -->
-    <!-- 1. HEADER / NAVIGATION BAR                                     -->
-    <!-- ============================================================== -->
-    <header id="main-header" class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-shadow duration-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <!-- Brand Logo & Name -->
-        <a href="#" class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-lg p-1">
-          <div class="h-12 w-auto flex items-center justify-center">
-            <img 
-              src="/assets/images/yescare_logo_transparent.png" 
-              alt="YesCare! 예스케어 로고" 
-              class="h-11 w-auto max-w-[170px] object-contain group-hover:scale-105 transition-transform"
-            />
-          </div>
-          <div class="flex flex-col">
-            <span class="text-lg sm:text-xl font-black text-[#10264d] tracking-tight leading-none whitespace-nowrap">
-              <span>예스케어</span>
-              <span class="text-amber-500 ml-1">대전 요양원</span>
-            </span>
-            <span class="text-[10px] sm:text-[11px] text-slate-500 tracking-wider font-semibold mt-1 whitespace-nowrap">
-              YesCare! Adult Day Health & Nursing Care
-            </span>
-          </div>
-        </a>
-
-        <!-- Desktop Navigation Menu -->
-        <nav class="hidden md:flex items-center gap-2 lg:gap-4 text-sm font-bold text-slate-700 whitespace-nowrap">
-          <a href="#services" class="px-3 py-2 rounded-lg hover:text-[#10264d] hover:bg-slate-100 transition-colors">
-            케어 서비스
-          </a>
-          <a href="#facility-banner" class="px-3 py-2 rounded-lg hover:text-[#10264d] hover:bg-slate-100 transition-colors">
-            생활 공간
-          </a>
-          <a href="#news" class="px-3 py-2 rounded-lg hover:text-[#10264d] hover:bg-slate-100 transition-colors">
-            요양원 소식
-          </a>
-          <a href="#admission" class="px-3 py-2 rounded-lg hover:text-[#10264d] hover:bg-slate-100 transition-colors">
-            입소 안내·FAQ
-          </a>
-          <a href="#location" class="px-3 py-2 rounded-lg hover:text-[#10264d] hover:bg-slate-100 transition-colors">
-            오시는 길
-          </a>
-        </nav>
-
-        <!-- Right Quick Actions -->
-        <div class="hidden sm:flex items-center gap-3">
-          <button 
-            type="button"
-            onclick="openCalculatorModal()"
-            class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-slate-300 hover:border-amber-500 hover:text-amber-600 text-xs font-bold text-slate-700 transition-colors bg-white shadow-sm"
-          >
-            <svg class="w-3.5 h-3.5 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <rect width="16" height="20" x="4" y="2" rx="2"></rect>
-              <line x1="8" x2="16" y1="6" y2="6"></line>
-              <line x1="16" x2="16" y1="14" y2="14"></line>
-              <line x1="16" x2="16" y1="18" y2="18"></line>
-              <line x1="12" x2="12" y1="14" y2="14"></line>
-              <line x1="12" x2="12" y1="18" y2="18"></line>
-              <line x1="8" x2="8" y1="14" y2="14"></line>
-              <line x1="8" x2="8" y1="18" y2="18"></line>
-              <line x1="8" x2="8" y1="10" y2="10"></line>
-              <line x1="12" x2="12" y1="10" y2="10"></line>
-              <line x1="16" x2="16" y1="10" y2="10"></line>
-            </svg>
-            <span>비용 계산기</span>
-          </button>
-
-          <a 
-            href="tel:15336598" 
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#f2be42] hover:bg-amber-400 text-[#10264d] text-xs font-extrabold shadow-sm transition-all active:scale-95 whitespace-nowrap"
-          >
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            <span>상담 1533-6598</span>
-          </a>
-        </div>
-
-        <!-- Mobile Menu Toggle Button -->
-        <button 
-          id="mobile-menu-btn"
-          type="button" 
-          onclick="toggleMobileMenu()"
-          class="md:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100 focus:outline-none"
-          aria-label="메뉴 열기"
-        >
-          <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <line x1="4" x2="20" y1="6" y2="6"></line>
-            <line x1="4" x2="20" y1="12" y2="12"></line>
-            <line x1="4" x2="20" y1="18" y2="18"></line>
-          </svg>
-          <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Mobile Dropdown Menu -->
-      <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-3 shadow-lg">
-        <a href="#services" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-100">
-          케어 서비스
-        </a>
-        <a href="#facility-banner" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-100">
-          생활 공간
-        </a>
-        <a href="#news" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-100">
-          요양원 소식
-        </a>
-        <a href="#admission" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-100">
-          입소 안내·FAQ
-        </a>
-        <a href="#location" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-100">
-          오시는 길
-        </a>
-        <div class="pt-3 border-t border-slate-100 flex flex-col gap-2">
-          <button 
-            type="button"
-            onclick="toggleMobileMenu(); openCalculatorModal();"
-            class="w-full py-3 rounded-xl border border-slate-300 text-center text-sm font-bold text-slate-800 bg-slate-50 flex items-center justify-center gap-2"
-          >
-            <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <rect width="16" height="20" x="4" y="2" rx="2"></rect>
-              <line x1="8" x2="16" y1="6" y2="6"></line>
-              <line x1="8" x2="16" y1="10" y2="10"></line>
-            </svg>
-            <span>비용 간편 계산기 열기</span>
-          </button>
-          <a 
-            href="tel:15336598" 
-            class="w-full py-3 rounded-xl bg-[#f2be42] text-center text-sm font-extrabold text-[#10264d] flex items-center justify-center gap-2 shadow-sm"
-          >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            <span>전화 상담 바로 연결 (1533-6598)</span>
-          </a>
-        </div>
-      </div>
+    <header id="main-header" class="site-header">
+      <nav class="site-width fallback-nav" aria-label="주 메뉴">
+        <a href="./index.html">예스케어 대전 요양원</a>
+        <a href="#facility-banner">시설 소개</a>
+        <a href="#services">돌봄 서비스</a>
+        <a href="#admission">입소 안내</a>
+        <a href="#care-cost">비용 안내</a>
+        <a href="./care-guide.html">요양정보 사전</a>
+        <a href="tel:15336598">입소 상담</a>
+      </nav>
     </header>
 
-    <main>
-      <!-- ============================================================== -->
-      <!-- 2. HERO SECTION                                                -->
-      <!-- ============================================================== -->
-      <section class="relative overflow-hidden bg-[#10264d] text-white">
-        <!-- Background Hero Image with Deep Contrast Gradient -->
-        <div class="absolute inset-0">
-          <img 
-            src="/assets/images/hero_elderly_care_1794119941046.jpg" 
-            alt="예스케어 대전 요양원 케어 모습" 
-            class="w-full h-full object-cover object-center opacity-30 scale-105 transition-transform duration-1000"
-          />
-          <div class="absolute inset-0 bg-gradient-to-r from-[#0b1b36] via-[#10264d]/90 to-[#10264d]/60"></div>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#10264d] via-transparent to-transparent"></div>
+    <main id="main-content" tabindex="-1">
+      <section class="home-hero" data-home aria-labelledby="home-title">
+        <img src="./public/assets/images/facility_0.jpg" alt="" fetchpriority="high" />
+        <div class="site-width home-hero-content">
+          <p class="eyebrow">대전 대덕구 상서동 노인요양시설</p>
+          <h1 id="home-title">어르신의 편안한 하루를 함께하는<br />예스케어 대전 요양원</h1>
+          <p>생활 공간과 돌봄 서비스를 살펴보고, 입소와 방문을 준비하세요.</p>
+          <a class="hero-link" href="./index.html#facility-banner" data-detail-link>요양원 둘러보기 <span aria-hidden="true">→</span></a>
         </div>
+      </section>
 
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36">
-          <div class="max-w-3xl">
-            <!-- Top Badge -->
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-semibold text-amber-300 mb-6">
-              <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-              <span>2026 보건복지부 지정 노인장기요양기관 · 노인전문간호사 총괄</span>
-            </div>
+      <div id="category-header"></div>
 
-            <!-- Main Headline -->
-            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.2] text-white break-keep mb-6">
-              어르신의 하루가 더욱 편안하고<br />
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">
-                존중받는 곳, 예스케어 대전 요양원
-              </span>
-            </h1>
-
-            <!-- Subtitle -->
-            <p class="text-base sm:text-lg lg:text-xl text-slate-200 leading-relaxed font-normal mb-8 max-w-2xl break-keep">
-              24시간 노인전문간호사 상주 생활 밀착 케어와 안락한 채광 생활실,<br class="hidden sm:inline" />
-              가족 안심 열린 소통 시스템으로 어르신의 행복하고 건강한 노후를 함께합니다.
-            </p>
-
-            <!-- 3 Key Badges -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10 text-xs sm:text-sm">
-              <div class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/15">
-                <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                </svg>
-                <span class="font-bold text-white">24시간 전문 간호 & 응급 대응</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/15">
-                <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                </svg>
-                <span class="font-bold text-white">1·2·4인실 맞춤형 생활실</span>
-              </div>
-              <div class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/15">
-                <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 14 14"></polyline>
-                </svg>
-                <span class="font-bold text-white">장기요양 1~5등급 입소 상담</span>
-              </div>
-            </div>
-
-            <!-- Call to Actions -->
-            <div class="flex flex-wrap items-center gap-4">
-              <a 
-                href="tel:15336598" 
-                class="inline-flex items-center gap-2.5 px-7 py-4 rounded-full bg-[#f2be42] hover:bg-amber-400 text-[#10264d] font-black text-base shadow-lg hover:shadow-xl transition-all active:scale-95"
-              >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                </svg>
-                <span>입소 상담 전화 1533-6598</span>
+      <section id="news" class="home-news site-width" data-home data-detail="news" aria-labelledby="news-heading">
+        <div class="news-content">
+          <p class="eyebrow">YESCARE NEWS</p>
+          <div class="news-heading">
+            <h2 id="news-heading">요양원 소식</h2>
+            <a href="https://blog.naver.com/yescare2026_new">블로그 전체 보기 <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="news-filters" role="group" aria-label="소식 주제" hidden>
+            <button type="button" data-filter="all" aria-pressed="true">전체</button>
+            <button type="button" data-filter="daily" aria-pressed="false">일상</button>
+            <button type="button" data-filter="therapy" aria-pressed="false">작업치료</button>
+            <button type="button" data-filter="health" aria-pressed="false">건강·돌봄</button>
+            <button type="button" data-filter="meal" aria-pressed="false">식단</button>
+          </div>
+          <ul class="news-list">
+            <li data-topic="therapy">
+              <a href="https://blog.naver.com/yescare2026_new/224467458725">
+                <time datetime="2026-11-06"><strong>06</strong>2026.11</time>
+                <span><strong>11월 6일 작업치료</strong><small>작업치료 프로그램의 하루</small></span>
+                <span aria-hidden="true">↗</span>
               </a>
+            </li>
+            <li data-topic="daily">
+              <a href="https://blog.naver.com/yescare2026_new/224467362767">
+                <time datetime="2026-11-06"><strong>06</strong>2026.11</time>
+                <span><strong>11월 6일 일상 이야기</strong><small>운동 동작을 따라 하는 프로그램</small></span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li data-topic="meal">
+              <a href="https://blog.naver.com/yescare2026_new/224466820354">
+                <time datetime="2026-11-06"><strong>06</strong>2026.11</time>
+                <span><strong>11월 둘째 주 식단표</strong><small>요일별 식사와 간식</small></span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li data-topic="therapy">
+              <a href="https://blog.naver.com/yescare2026_new/224466209709">
+                <time datetime="2026-11-05"><strong>05</strong>2026.11</time>
+                <span><strong>11월 5일 작업치료</strong><small>작업치료 프로그램의 하루</small></span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li data-topic="health">
+              <a href="https://blog.naver.com/yescare2026_new/224464368976">
+                <time datetime="2026-11-04"><strong>04</strong>2026.11</time>
+                <span><strong>11월 4일 건강과 돌봄 소식</strong><small>건강·돌봄</small></span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </li>
+          </ul>
+          <p id="news-empty" class="mt-3 text-sm text-slate-600" hidden>선택한 주제의 최근 소식이 없습니다.</p>
+          <p class="sr-only" id="news-status" role="status"></p>
+        </div>
+        <aside class="home-contact" data-home aria-labelledby="home-contact-title">
+          <p class="eyebrow">ADMISSION &amp; VISIT</p>
+          <h2 id="home-contact-title">입소·방문 상담</h2>
+          <p>입소 가능 여부와 방문 일정은<br />전화로 확인하실 수 있습니다.</p>
+          <a class="contact-number" href="tel:15336598" aria-label="입소·방문 상담 전화 1533-6598">1533-6598</a>
+          <a class="contact-visit" href="./index.html#visit" data-detail-link>방문 문의 안내 <span aria-hidden="true">→</span></a>
+        </aside>
+      </section>
 
-              <button 
-                type="button"
-                onclick="openCalculatorModal()"
-                class="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-base border border-white/25 backdrop-blur-md transition-all active:scale-95"
-              >
-                <svg class="w-5 h-5 text-amber-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <rect width="16" height="20" x="4" y="2" rx="2"></rect>
-                  <line x1="8" x2="16" y1="6" y2="6"></line>
-                  <line x1="8" x2="16" y1="10" y2="10"></line>
-                </svg>
-                <span>예상 비용 간편 계산기</span>
-              </button>
+      <nav class="site-width home-shortcuts" data-home aria-label="입소 전 바로가기">
+        <a class="shortcut-intro" href="./index.html#facility-banner" data-detail-link><strong>요양원 소개</strong><small>예스케어의 생활 공간과 돌봄</small></a>
+        <a href="./index.html#facility" data-detail-link><span aria-hidden="true">▧</span>시설 사진</a>
+        <a href="./index.html#admission" data-detail-link><span aria-hidden="true">☷</span>입소 절차</a>
+        <a href="./index.html#care-cost" data-detail-link><span aria-hidden="true">₩</span>비용 안내</a>
+        <a href="./index.html#location" data-detail-link><span aria-hidden="true">⌖</span>오시는 길</a>
+      </nav>
 
-              <button 
-                type="button"
-                onclick="openGalleryModal(0)"
-                class="inline-flex items-center gap-2 px-5 py-4 rounded-full text-slate-300 hover:text-white font-bold text-sm transition-colors"
-              >
-                <span>시설 사진 둘러보기</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </button>
-            </div>
-          </div>
+      <section class="site-width home-feature-section" data-home aria-labelledby="home-feature-title">
+        <p class="eyebrow">LIFE AT YESCARE</p>
+        <h2 id="home-feature-title">예스케어에서의 생활</h2>
+        <div class="home-features">
+          <a class="home-feature" href="./index.html#facility-banner" data-detail-link>
+            <img src="./public/assets/images/facility_2.jpg" alt="" loading="lazy" />
+            <span><strong>생활 공간</strong><small>생활실과 로비, 가족 면회실을 둘러보세요.</small></span>
+            <span aria-hidden="true">→</span>
+          </a>
+          <a class="home-feature" href="./index.html#services" data-detail-link>
+            <img src="./public/assets/images/news-daily-2026-11-06.jpg" alt="" loading="lazy" />
+            <span><strong>돌봄 서비스</strong><small>간호 돌봄, 일상생활, 작업치료와 식단을 살펴보세요.</small></span>
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
       </section>
 
-      <!-- ============================================================== -->
-      <!-- 3. CORE SERVICES SECTION (Inspired by Association Cards)       -->
-      <!-- ============================================================== -->
-      <section id="services" class="py-16 sm:py-24 bg-white">
+      <!-- Facility and care team -->
+      <section data-detail="facility-banner" id="facility-banner" class="py-12 sm:py-16 bg-[#f8f9fa]" aria-labelledby="facility-intro-title">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <!-- Section Title -->
-          <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="text-xs sm:text-sm font-bold text-amber-600 tracking-wider uppercase">
-              COMPREHENSIVE CARE SERVICES
-            </span>
-            <h2 class="text-2xl sm:text-4xl font-extrabold text-[#10264d] tracking-tight mt-2 break-keep">
-              어르신의 건강과 일상을 지키는<br />
-              예스케어의 맞춤형 케어 프로그램
-            </h2>
-            <p class="text-slate-500 text-sm sm:text-base mt-3 break-keep">
-              신체 건강부터 정서적 안정까지, 365일 체계적인 전문 요양 솔루션을 제공합니다.
-            </p>
-          </div>
-
-          <!-- 6 Program Cards -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <!-- Card 1 -->
-            <div class="group p-8 rounded-3xl bg-slate-50 hover:bg-white border border-slate-200/80 hover:border-amber-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-              <div>
-                <div class="w-14 h-14 rounded-2xl bg-amber-100/70 text-amber-600 flex items-center justify-center mb-6 group-hover:bg-[#f2be42] group-hover:text-[#10264d] transition-colors">
-                  <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                  </svg>
-                </div>
-                <h3 class="text-xl font-bold text-[#10264d] mb-3 group-hover:text-amber-600 transition-colors">
-                  24시간 전문 간호 & 응급 케어
-                </h3>
-                <p class="text-slate-600 text-sm leading-relaxed break-keep mb-6">
-                  노인전문간호사 총괄 아래 매일 투약 관리, 혈당·혈압 등 활력징후를 기록하며, 협력병원 촉탁의 정기 방문 진료 및 24시간 응급 이송 네트워크를 완비했습니다.
-                </p>
-              </div>
-              <div class="pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-semibold text-slate-500">
-                <span>간호사 상주 · 촉탁의 회진</span>
-                <span class="text-amber-500 font-bold">24H Care</span>
-              </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="group p-8 rounded-3xl bg-slate-50 hover:bg-white border border-slate-200/80 hover:border-amber-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-              <div>
-                <div class="w-14 h-14 rounded-2xl bg-blue-100/70 text-[#10264d] flex items-center justify-center mb-6 group-hover:bg-[#10264d] group-hover:text-white transition-colors">
-                  <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="9" cy="7" r="4"></circle>
-                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                  </svg>
-                </div>
-                <h3 class="text-xl font-bold text-[#10264d] mb-3 group-hover:text-amber-600 transition-colors">
-                  일상생활 밀착 지원 케어
-                </h3>
-                <p class="text-slate-600 text-sm leading-relaxed break-keep mb-6">
-                  전문 1급 요양보호사가 어르신의 개인별 잔존 기능에 맞춰 세면, 목욕, 구강 관리, 옷 갈아입히기, 식사 보조 및 화장실 이동을 세심하게 돕습니다.
-                </p>
-              </div>
-              <div class="pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-semibold text-slate-500">
-                <span>1급 요양보호사 배정</span>
-                <span class="text-amber-500 font-bold">Daily Support</span>
-              </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="group p-8 rounded-3xl bg-slate-50 hover:bg-white border border-slate-200/80 hover:border-amber-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-              <div>
-                <div class="w-14 h-14 rounded-2xl bg-emerald-100/70 text-emerald-700 flex items-center justify-center mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
-                  <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                  </svg>
-                </div>
-                <h3 class="text-xl font-bold text-[#10264d] mb-3 group-hover:text-amber-600 transition-colors">
-                  맞춤형 신체·인지 재활 운동
-                </h3>
-                <p class="text-slate-600 text-sm leading-relaxed break-keep mb-6">
-                  관절 가동 범위 유지, 낙상 예방 하지 근력 운동, 보행 훈련 및 작업치료 교구를 활용하여 신체 기능 퇴행을 막고 일상의 활력을 되찾아 드립니다.
-                </p>
-              </div>
-              <div class="pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-semibold text-slate-500">
-                <span>신체 기능 유지 · 보행 훈련</span>
-                <span class="text-amber-500 font-bold">Rehab</span>
-              </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="group p-8 rounded-3xl bg-slate-50 hover:bg-white border border-slate-200/80 hover:border-amber-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-              <div>
-                <div class="w-14 h-14 rounded-2xl bg-orange-100/70 text-orange-600 flex items-center justify-center mb-6 group-hover:bg-orange-500 group-hover:text-white transition-colors">
-                  <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                    <line x1="6" x2="6" y1="1" y2="4"></line>
-                    <line x1="10" x2="10" y1="1" y2="4"></line>
-                    <line x1="14" x2="14" y1="1" y2="4"></line>
-                  </svg>
-                </div>
-                <h3 class="text-xl font-bold text-[#10264d] mb-3 group-hover:text-amber-600 transition-colors">
-                  영양사 감수 균형 식단 & 영양 관리
-                </h3>
-                <p class="text-slate-600 text-sm leading-relaxed break-keep mb-6">
-                  영양사가 작성한 제철 건강 식단표를 바탕으로, 일반식·다진식·죽식·연하식 등 어르신의 치아 상태와 연하 능력에 맞춘 소화 편한 식사를 제공합니다.
-                </p>
-              </div>
-              <div class="pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-semibold text-slate-500">
-                <span>저염식 · 당뇨식 · 연하식</span>
-                <span class="text-amber-500 font-bold">Nutrition</span>
-              </div>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="group p-8 rounded-3xl bg-slate-50 hover:bg-white border border-slate-200/80 hover:border-amber-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-              <div>
-                <div class="w-14 h-14 rounded-2xl bg-purple-100/70 text-purple-600 flex items-center justify-center mb-6 group-hover:bg-purple-600 group-hover:text-white transition-colors">
-                  <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-                    <line x1="9" x2="9.01" y1="9" y2="9"></line>
-                    <line x1="15" x2="15.01" y1="9" y2="9"></line>
-                  </svg>
-                </div>
-                <h3 class="text-xl font-bold text-[#10264d] mb-3 group-hover:text-amber-600 transition-colors">
-                  정서·여가 & 치매 예방 프로그램
-                </h3>
-                <p class="text-slate-600 text-sm leading-relaxed break-keep mb-6">
-                  미술치료, 음악회, 원예 활동, 회상 요법, 생신 잔치 등 다채로운 사회복지 여가 활동을 통해 우울감을 예방하고 인지 기억력을 자극합니다.
-                </p>
-              </div>
-              <div class="pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-semibold text-slate-500">
-                <span>인지 자극 · 정서 지지</span>
-                <span class="text-amber-500 font-bold">Activity</span>
-              </div>
-            </div>
-
-            <!-- Card 6 -->
-            <div class="group p-8 rounded-3xl bg-slate-50 hover:bg-white border border-slate-200/80 hover:border-amber-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-              <div>
-                <div class="w-14 h-14 rounded-2xl bg-cyan-100/70 text-cyan-700 flex items-center justify-center mb-6 group-hover:bg-cyan-600 group-hover:text-white transition-colors">
-                  <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                    <polyline points="14 2 14 8 20 8"></polyline>
-                    <line x1="16" x2="8" y1="13" y2="13"></line>
-                    <line x1="16" x2="8" y1="17" y2="17"></line>
-                    <polyline points="10 9 9 9 8 9"></polyline>
-                  </svg>
-                </div>
-                <h3 class="text-xl font-bold text-[#10264d] mb-3 group-hover:text-amber-600 transition-colors">
-                  입소 상담 & 복지 행정 연계
-                </h3>
-                <p class="text-slate-600 text-sm leading-relaxed break-keep mb-6">
-                  장기요양등급 인정 신청 대행 절차부터 본인부담금 감경 요건, 입소 구비 서류 확인까지 전담 사회복지사가 친절하게 1:1 상담을 도와드립니다.
-                </p>
-              </div>
-              <div class="pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-semibold text-slate-500">
-                <span>등급 신청 안내 · 본인부담 감경</span>
-                <span class="text-amber-500 font-bold">Consulting</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============================================================== -->
-      <!-- 4. ORANGE FEATURE SHOWCASE BANNER                              -->
-      <!-- ============================================================== -->
-      <section id="facility-banner" class="relative py-12 sm:py-16 bg-[#f8f9fa]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="rounded-3xl overflow-hidden bg-gradient-to-r from-orange-500 via-orange-600 to-amber-500 shadow-2xl relative">
-            <div class="grid grid-cols-1 lg:grid-cols-12 items-center">
-              <!-- Left: Facility Photo -->
-              <div class="lg:col-span-5 relative h-72 sm:h-96 lg:h-full min-h-[320px] overflow-hidden">
-                <img 
-                  src="/assets/images/facility_2.jpg" 
-                  alt="예스케어 대전 요양원 채광 가득한 생활실" 
-                  class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-transparent via-transparent to-orange-500/60 lg:to-orange-500"></div>
-              </div>
-
-              <!-- Right: Content -->
-              <div class="lg:col-span-7 p-8 sm:p-12 lg:p-16 flex flex-col justify-center text-white">
-                <span class="text-xs font-black tracking-widest text-amber-100 uppercase">
-                  COMFORTABLE & SECURE ENVIRONMENT
-                </span>
-                <h2 class="text-2xl sm:text-4xl font-black text-white mt-2 mb-4 leading-tight break-keep">
-                  어르신이 매일 머무는<br />
-                  따뜻하고 안전한 생활 공간.
-                </h2>
-                <p class="text-amber-50 text-sm sm:text-base leading-relaxed mb-8 max-w-xl break-keep">
-                  어르신의 안전과 편안한 휴식을 최우선으로 고려한 채광 가득한 생활실,<br class="hidden sm:inline" />
-                  가족과 따뜻한 온기를 나눌 수 있는 전용 면회실과 함께<br class="hidden sm:inline" />
-                  24시간 철저한 낙상 예방 및 소방 안전 케어 시스템을 완비했습니다.
-                </p>
-
-                <div class="flex flex-wrap items-center gap-3">
-                  <button 
-                    type="button"
-                    onclick="openGalleryModal(1)"
-                    class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-orange-600 hover:bg-amber-50 font-black text-sm shadow-md transition-all active:scale-95"
-                  >
-                    <span>생활실 및 시설 사진 둘러보기</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                  </button>
-
-                  <a 
-                    href="https://blog.naver.com/yescare2026_new/224384063149" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center gap-1.5 px-5 py-3.5 rounded-full bg-black/20 hover:bg-black/30 text-white text-sm font-bold backdrop-blur-sm transition-all"
-                  >
-                    <span>블로그 온라인 투어</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" x2="21" y1="14" y2="3"></line>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============================================================== -->
-      <!-- 5. WHY YESCARE (4 Key Values Grid)                            -->
-      <!-- ============================================================== -->
-      <section class="py-16 sm:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="text-xs sm:text-sm font-bold text-amber-600 uppercase">
-              WHY CHOOSE YESCARE
-            </span>
-            <h2 class="text-2xl sm:text-4xl font-extrabold text-[#10264d] tracking-tight mt-1 break-keep">
-              가족이 안심하고 믿고 맡길 수 있는 4가지 약속
-            </h2>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- 01 -->
-            <div class="p-6 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-amber-400 hover:shadow-lg transition-all">
-              <span class="text-3xl font-black text-amber-500/80 font-mono">01</span>
-              <h3 class="text-lg font-bold text-[#10264d] mt-3 mb-2">노인전문간호사 총괄</h3>
-              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed break-keep">
-                만성 질환 관리, 욕창 및 낙상 방지 등 전문 간호 인력이 24시간 어르신의 신체 리듬을 철저히 모니터링합니다.
-              </p>
-            </div>
-
-            <!-- 02 -->
-            <div class="p-6 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-amber-400 hover:shadow-lg transition-all">
-              <span class="text-3xl font-black text-amber-500/80 font-mono">02</span>
-              <h3 class="text-lg font-bold text-[#10264d] mt-3 mb-2">안락한 채광과 안전 설계</h3>
-              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed break-keep">
-                창문 가득 따사로운 햇볕이 드는 생활실과 문턱 없는 배리어프리 설계, 최신 스프링클러 및 소방 안전망을 구축했습니다.
-              </p>
-            </div>
-
-            <!-- 03 -->
-            <div class="p-6 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-amber-400 hover:shadow-lg transition-all">
-              <span class="text-3xl font-black text-amber-500/80 font-mono">03</span>
-              <h3 class="text-lg font-bold text-[#10264d] mt-3 mb-2">열린 소통과 가족 안심</h3>
-              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed break-keep">
-                정기적인 안부 전화와 생활 모습 사진 전송, 프라이빗 가족 면회실 운영으로 언제든 부모님과 소통할 수 있습니다.
-              </p>
-            </div>
-
-            <!-- 04 -->
-            <div class="p-6 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-amber-400 hover:shadow-lg transition-all">
-              <span class="text-3xl font-black text-amber-500/80 font-mono">04</span>
-              <h3 class="text-lg font-bold text-[#10264d] mt-3 mb-2">편리한 도심 접근성</h3>
-              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed break-keep">
-                신탄진IC 및 신탄진역 인접 대전 대덕구 상서동에 위치하여 가족분들이 주말이나 퇴근길에 방문하시기 매우 편리합니다.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============================================================== -->
-      <!-- 6. DUAL ACTION CALLOUT CARDS                                   -->
-      <!-- ============================================================== -->
-      <section class="py-12 bg-slate-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <!-- Card 1: Direct Telephone Consultation -->
-            <div class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#0c1e3e] to-[#1a3867] p-8 sm:p-10 text-white shadow-xl flex flex-col justify-between min-h-[260px] group">
-              <div>
-                <div class="flex items-center gap-2 text-xs font-bold text-amber-400 mb-2">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                  </svg>
-                  <span>24시간 언제든 친절 상담</span>
-                </div>
-                <h3 class="text-2xl sm:text-3xl font-black text-white mb-2">
-                  입소 전화 상담
-                </h3>
-                <p class="text-slate-300 text-sm leading-relaxed max-w-md break-keep">
-                  입소 가능 여부와 장기요양등급 신청 절차부터 필요한 구비 서류까지,<br class="hidden sm:inline" />
-                  전문 상담사가 전화 한 통으로 친절하고 상세하게 안내해 드립니다.
-                </p>
-              </div>
-
-              <div class="pt-6 flex items-center justify-between">
-                <a 
-                  href="tel:15336598" 
-                  class="text-2xl sm:text-3xl font-black text-amber-400 font-mono tracking-tight hover:underline flex items-center gap-2"
-                >
-                  1533-6598
-                </a>
-                <a 
-                  href="tel:15336598" 
-                  class="w-12 h-12 rounded-full bg-amber-400 hover:bg-amber-300 text-[#10264d] flex items-center justify-center shadow-lg transition-transform group-hover:scale-110"
-                  aria-label="전화 걸기"
-                >
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-                    <polyline points="9 18 15 12 9 6"></polyline>
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            <!-- Card 2: Cost Calculation & Facility Visit -->
-            <div class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-slate-900 via-[#10264d] to-slate-900 p-8 sm:p-10 text-white shadow-xl flex flex-col justify-between min-h-[260px] group">
-              <div>
-                <div class="flex items-center gap-2 text-xs font-bold text-amber-400 mb-2">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <rect width="16" height="20" x="4" y="2" rx="2"></rect>
-                    <line x1="8" x2="16" y1="6" y2="6"></line>
-                    <line x1="8" x2="16" y1="10" y2="10"></line>
-                  </svg>
-                  <span>투명한 2026 장기요양 수가 기준</span>
-                </div>
-                <h3 class="text-2xl sm:text-3xl font-black text-white mb-2">
-                  비용 간편 계산기
-                </h3>
-                <p class="text-slate-300 text-sm leading-relaxed max-w-md break-keep">
-                  장기요양 1~5등급 본인부담률(일반 20%, 감경 8~12%, 수급자)에 따른<br class="hidden sm:inline" />
-                  예상 월 본인부담금과 식사 비용을 10초 만에 간편히 계산해 보세요.
-                </p>
-              </div>
-
-              <div class="pt-6 flex items-center justify-between">
-                <button 
-                  type="button"
-                  onclick="openCalculatorModal()"
-                  class="text-base sm:text-lg font-bold text-amber-300 hover:text-amber-200 underline underline-offset-4"
-                >
-                  지금 바로 예상 비용 계산하기
-                </button>
-                <button 
-                  type="button"
-                  onclick="openCalculatorModal()"
-                  class="w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center shadow-lg transition-transform group-hover:scale-110"
-                  aria-label="비용 계산기 열기"
-                >
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-                    <polyline points="9 18 15 12 9 6"></polyline>
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============================================================== -->
-      <!-- 7. NEWS & DAILY BLOG UPDATES                                   -->
-      <!-- ============================================================== -->
-      <section id="news" class="py-16 sm:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12">
-            <div>
-              <span class="text-xs sm:text-sm font-bold text-amber-600 uppercase">
-                YESCARE DAILY NEWS
-              </span>
-              <h2 class="text-2xl sm:text-4xl font-extrabold text-[#10264d] tracking-tight mt-1 break-keep">
-                예스케어 대전 요양원 최신 소식
+          <div class="grid overflow-hidden rounded-3xl border border-[#e8dfd2] bg-[#fff9ef] lg:grid-cols-12">
+            <div class="flex flex-col justify-center p-6 sm:p-10 lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:p-12">
+              <p class="text-sm font-extrabold text-amber-900">상서동 예스케어 시설 안내</p>
+              <h2 id="facility-intro-title" class="mt-3 text-2xl font-extrabold leading-tight tracking-tight text-[#10264d] sm:text-4xl">
+                어르신이 하루를 보내는 공간
               </h2>
+              <p class="mt-4 text-base leading-relaxed text-slate-700">
+                창가에 침대가 놓인 생활실, 가족과 만나는 면회실, 처음 방문하시면 들어오시는 1층 로비를 사진으로 살펴보세요.
+              </p>
+              <div class="mt-6 flex flex-wrap items-center gap-3">
+                <a href="./index.html#facility" data-detail-link class="inline-flex min-h-11 items-center rounded-full bg-[#10264d] px-5 py-2.5 text-sm font-bold text-white hover:bg-[#163366] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-700">시설 사진 둘러보기</a>
+                <a href="tel:15336598" class="inline-flex min-h-11 items-center rounded-full border border-amber-600 px-5 py-2.5 text-sm font-bold text-[#10264d] hover:bg-amber-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-700">전화로 시설 방문 문의</a>
+              </div>
             </div>
-            <a 
-              href="https://blog.naver.com/yescare2026_new" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-amber-600 hover:text-amber-700 mt-4 sm:mt-0"
-            >
-              <span>공식 블로그 전체보기</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </a>
+            <button type="button" data-gallery-open="living" aria-label="대표 생활실 사진 확대" aria-haspopup="dialog" class="group relative block w-full overflow-hidden bg-slate-200 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-amber-600 lg:col-span-7 lg:col-start-1 lg:row-start-1">
+              <img src="./public/assets/images/facility_2.jpg" alt="" width="800" height="600" loading="lazy" decoding="async"
+                class="aspect-[4/3] w-full object-cover lg:h-full" />
+              <span class="absolute bottom-4 left-4 rounded-full bg-white px-4 py-2 text-sm font-bold text-[#10264d] shadow-sm group-hover:underline">생활실 사진 확대 <span aria-hidden="true">＋</span></span>
+            </button>
           </div>
-
-          <!-- 4 News Cards -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- News 1 -->
-            <a 
-              href="https://blog.naver.com/yescare2026_new/224467362767" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="rounded-3xl p-6 bg-slate-50 border border-slate-200/80 hover:border-amber-400 hover:shadow-lg transition-all flex flex-col justify-between group"
-            >
-              <div>
-                <div class="flex items-center justify-between mb-3 text-xs">
-                  <span class="px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 font-bold">
-                    일상 이야기
-                  </span>
-                  <span class="text-slate-400 font-mono">2026.11.06</span>
-                </div>
-                <h3 class="font-bold text-slate-900 group-hover:text-amber-600 transition-colors text-base line-clamp-2 mb-2 break-keep">
-                  11월 6일 일상이야기 - 어르신들과 함께한 따뜻한 하루
-                </h3>
-                <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed break-keep">
-                  맑은 가을 햇살 아래 어르신들과 도란도란 이야기를 나누며 햇볕을 쬐고 산책하는 일상을 전해드립니다.
-                </p>
-              </div>
-              <div class="pt-4 mt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-amber-600">
-                <span>자세히 보기</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </div>
-            </a>
-
-            <!-- News 2 -->
-            <a 
-              href="https://blog.naver.com/yescare2026_new/224467458725" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="rounded-3xl p-6 bg-slate-50 border border-slate-200/80 hover:border-amber-400 hover:shadow-lg transition-all flex flex-col justify-between group"
-            >
-              <div>
-                <div class="flex items-center justify-between mb-3 text-xs">
-                  <span class="px-2.5 py-1 rounded-full bg-blue-100 text-blue-800 font-bold">
-                    작업치료
-                  </span>
-                  <span class="text-slate-400 font-mono">2026.11.06</span>
-                </div>
-                <h3 class="font-bold text-slate-900 group-hover:text-amber-600 transition-colors text-base line-clamp-2 mb-2 break-keep">
-                  11월 6일 소근육 강화 및 인지 작업치료 프로그램
-                </h3>
-                <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed break-keep">
-                  손 근육과 뇌 감각을 자극하는 색채 스케치와 인지 조작 활동으로 어르신들의 집중력과 활기를 북돋았습니다.
-                </p>
-              </div>
-              <div class="pt-4 mt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-amber-600">
-                <span>자세히 보기</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </div>
-            </a>
-
-            <!-- News 3 -->
-            <a 
-              href="https://blog.naver.com/yescare2026_new/224466820354" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="rounded-3xl p-6 bg-slate-50 border border-slate-200/80 hover:border-amber-400 hover:shadow-lg transition-all flex flex-col justify-between group"
-            >
-              <div>
-                <div class="flex items-center justify-between mb-3 text-xs">
-                  <span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 font-bold">
-                    식단 안내
-                  </span>
-                  <span class="text-slate-400 font-mono">2026.11.04</span>
-                </div>
-                <h3 class="font-bold text-slate-900 group-hover:text-amber-600 transition-colors text-base line-clamp-2 mb-2 break-keep">
-                  2026년 11월 둘째 주 영양 식단표 안내
-                </h3>
-                <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed break-keep">
-                  영양사가 엄선한 제철 식재료와 소화가 편한 부드러운 조리법으로 차려낸 주간 식단표를 확인해 보세요.
-                </p>
-              </div>
-              <div class="pt-4 mt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-amber-600">
-                <span>자세히 보기</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </div>
-            </a>
-
-            <!-- News 4 -->
-            <a 
-              href="https://blog.naver.com/yescare2026_new/224386557078" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="rounded-3xl p-6 bg-slate-50 border border-slate-200/80 hover:border-amber-400 hover:shadow-lg transition-all flex flex-col justify-between group"
-            >
-              <div>
-                <div class="flex items-center justify-between mb-3 text-xs">
-                  <span class="px-2.5 py-1 rounded-full bg-purple-100 text-purple-800 font-bold">
-                    요양 정보
-                  </span>
-                  <span class="text-slate-400 font-mono">2026.10.30</span>
-                </div>
-                <h3 class="font-bold text-slate-900 group-hover:text-amber-600 transition-colors text-base line-clamp-2 mb-2 break-keep">
-                  장기요양등급 신청 절차 및 입소 서류 완벽 안내
-                </h3>
-                <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed break-keep">
-                  노인장기요양보험 등급 판정 방법부터 본인부담금 감경 요건, 입소 시 준비해야 할 서류를 알기 쉽게 정리했습니다.
-                </p>
-              </div>
-              <div class="pt-4 mt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-amber-600">
-                <span>자세히 보기</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </div>
-            </a>
+          <div id="care-team-summary" class="mt-6 flex flex-wrap items-center justify-between gap-5 rounded-3xl border border-slate-200 bg-white p-6 sm:p-8">
+            <div>
+              <h3 class="text-xl sm:text-2xl font-extrabold text-[#10264d]">케어팀 소개</h3>
+              <p class="mt-2 max-w-2xl text-base leading-relaxed text-slate-600">통합돌봄부, 사무행정부, 운영지원부가 어르신의 돌봄과 생활을 함께 지원합니다.</p>
+            </div>
+            <a href="./care-team.html" class="inline-flex min-h-11 items-center rounded-full bg-[#10264d] px-5 py-2.5 font-bold text-white hover:bg-[#163366] focus-visible:ring-2 focus-visible:ring-amber-600">케어팀 자세히 보기 <span class="ml-2" aria-hidden="true">→</span></a>
           </div>
         </div>
       </section>
 
-      <!-- ============================================================== -->
-      <!-- 8. ADMISSION 3-STEP GUIDE & FAQ ACCORDION                     -->
-      <!-- ============================================================== -->
-      <section id="admission" class="py-16 sm:py-24 bg-slate-50 border-t border-slate-200/70">
+      <!-- Facility photos -->
+      <section data-home data-detail="facility" id="facility" class="home-gallery">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="mb-6 flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-[#10264d] tracking-tight">공간별 시설 사진</h2>
+              <p class="mt-2 text-base text-slate-600">공간을 선택하면 사진을 크게 볼 수 있습니다.</p>
+            </div>
+            <a href="https://blog.naver.com/yescare2026_new/224384063149" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center font-bold text-[#10264d] underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-700">블로그 시설 소개 보기 <span aria-hidden="true" class="ml-2">↗</span></a>
+          </div>
+          <div class="facility-gallery-grid">
+            <article data-home data-detail="facility" data-facility-gallery="arrival" class="relative group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <div class="relative aspect-[4/3] overflow-hidden">
+                <img src="./public/assets/images/facility_0.jpg" alt="건물 전경" data-caption="상서동 예스케어 건물과 입구입니다." loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <span id="photos-arrival" class="absolute bottom-2 right-2 rounded-full bg-white px-2.5 py-1 text-xs font-bold text-[#10264d] shadow-sm">사진 3장</span>
+              </div>
+              <div class="p-3 sm:p-4">
+                <h3 id="space-arrival" class="font-bold text-[#10264d] group-hover:underline">건물·1층 안내</h3>
+                <p class="mt-1 text-sm leading-relaxed text-slate-600">건물 입구부터 1층 로비와 사무실까지</p>
+              </div>
+              <button type="button" data-gallery-open="arrival" aria-labelledby="space-arrival" aria-describedby="photos-arrival"
+                aria-haspopup="dialog" class="absolute inset-0 rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-amber-700"></button>
+              <div hidden>
+                <img src="./public/assets/images/facility_4.jpg" alt="1층 로비" data-caption="방문객이 처음 들어오는 대기 공간입니다." loading="lazy" decoding="async" />
+                <img src="./public/assets/images/facility-office.jpg" alt="1층 사무실" data-caption="1층 로비에서 이어지는 사무 공간입니다." loading="lazy" decoding="async" />
+              </div>
+            </article>
+            <article data-home data-detail="facility" data-facility-gallery="visiting" class="relative group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <div class="relative aspect-[4/3] overflow-hidden">
+                <img src="./public/assets/images/facility_3.jpg" alt="가족 면회실" data-caption="가족과 만나 이야기할 수 있는 원형 테이블입니다." loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <span id="photos-visiting" class="absolute bottom-2 right-2 rounded-full bg-white px-2.5 py-1 text-xs font-bold text-[#10264d] shadow-sm">사진 2장</span>
+              </div>
+              <div class="p-3 sm:p-4">
+                <h3 id="space-visiting" class="font-bold text-[#10264d] group-hover:underline">가족 면회실</h3>
+                <p class="mt-1 text-sm leading-relaxed text-slate-600">가족이 마주 앉아 이야기하는 공간</p>
+              </div>
+              <button type="button" data-gallery-open="visiting" aria-labelledby="space-visiting" aria-describedby="photos-visiting"
+                aria-haspopup="dialog" class="absolute inset-0 rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-amber-700"></button>
+              <div hidden>
+                <img src="./public/assets/images/facility-visiting-room-wide.jpg" alt="면회실 전경" data-caption="면회실의 테이블과 좌석 배치를 한눈에 볼 수 있습니다." loading="lazy" decoding="async" />
+              </div>
+            </article>
+            <article data-home data-detail="facility" data-facility-gallery="living" class="relative group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <div class="relative aspect-[4/3] overflow-hidden">
+                <img src="./public/assets/images/facility_2.jpg" alt="생활실 전체" data-caption="창가 침대와 개인 수납공간이 있는 생활실입니다." loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <span id="photos-living" class="absolute bottom-2 right-2 rounded-full bg-white px-2.5 py-1 text-xs font-bold text-[#10264d] shadow-sm">사진 4장</span>
+              </div>
+              <div class="p-3 sm:p-4">
+                <h3 id="space-living" class="font-bold text-[#10264d] group-hover:underline">생활 공간</h3>
+                <p class="mt-1 text-sm leading-relaxed text-slate-600">생활실, 2층 복도와 2·3층 공용 로비</p>
+              </div>
+              <button type="button" data-gallery-open="living" aria-labelledby="space-living" aria-describedby="photos-living"
+                aria-haspopup="dialog" class="absolute inset-0 rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-amber-700"></button>
+              <div hidden>
+                <img src="./public/assets/images/facility-bedside.jpg" alt="생활실 창가 침상" data-caption="창가 침대 옆 수납장과 침상 사이의 커튼입니다." loading="lazy" decoding="async" />
+                <img src="./public/assets/images/facility-second-floor-hall.jpg" alt="2층 엘리베이터 앞 복도" data-caption="엘리베이터에서 생활 공간으로 이어지는 복도입니다." loading="lazy" decoding="async" />
+                <img src="./public/assets/images/facility-shared-lobby.jpg" alt="2·3층 공용 로비" data-caption="어르신이 식사하고 프로그램에 참여하는 공간입니다. 블로그 사진 속 얼굴은 AI로 가렸습니다." loading="lazy" decoding="async" />
+              </div>
+            </article>
+            <article data-detail="facility" data-facility-gallery="therapy" class="relative group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <div class="relative aspect-[4/3] overflow-hidden">
+                <img src="./public/assets/images/facility-therapy-room.jpg" alt="치료실" data-caption="치료용 침대와 장비가 배치된 공간입니다." loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <span id="photos-therapy" class="absolute bottom-2 right-2 rounded-full bg-white px-2.5 py-1 text-xs font-bold text-[#10264d] shadow-sm">사진 1장</span>
+              </div>
+              <div class="p-3 sm:p-4">
+                <h3 id="space-therapy" class="font-bold text-[#10264d] group-hover:underline">치료실</h3>
+                <p class="mt-1 text-sm leading-relaxed text-slate-600">치료용 침대와 장비를 갖춘 공간</p>
+              </div>
+              <button type="button" data-gallery-open="therapy" aria-labelledby="space-therapy" aria-describedby="photos-therapy"
+                aria-haspopup="dialog" class="absolute inset-0 rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-amber-700"></button>
+            </article>
+            <article data-detail="facility" data-facility-gallery="nursing" class="relative group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <div class="relative aspect-[4/3] overflow-hidden">
+                <img src="./public/assets/images/facility-nursing-meeting.jpg" alt="간호사 회의실" data-caption="간호팀이 사용하는 회의 테이블과 수납공간입니다." loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <span id="photos-nursing" class="absolute bottom-2 right-2 rounded-full bg-white px-2.5 py-1 text-xs font-bold text-[#10264d] shadow-sm">사진 1장</span>
+              </div>
+              <div class="p-3 sm:p-4">
+                <h3 id="space-nursing" class="font-bold text-[#10264d] group-hover:underline">간호사 회의실</h3>
+                <p class="mt-1 text-sm leading-relaxed text-slate-600">간호팀이 회의하는 공간</p>
+              </div>
+              <button type="button" data-gallery-open="nursing" aria-labelledby="space-nursing" aria-describedby="photos-nursing"
+                aria-haspopup="dialog" class="absolute inset-0 rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-amber-700"></button>
+            </article>
+          </div>
+          <p data-home class="mt-5">
+            <a href="./index.html#facility" data-detail-link class="inline-flex min-h-11 items-center font-bold underline underline-offset-4">모든 시설 공간 보기 <span class="ml-2" aria-hidden="true">→</span></a>
+          </p>
+        </div>
+      </section>
+
+      <!-- Care services -->
+      <section data-detail="services" id="services" class="py-12 sm:py-16 bg-white" aria-labelledby="services-heading">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 id="services-heading" class="text-2xl font-extrabold tracking-tight text-[#10264d] sm:text-4xl">어르신의 하루를 돕는 서비스</h2>
+          <p class="mt-2 text-base leading-relaxed text-slate-600">돌봄 분야별로 실제 일상과 프로그램 소식을 살펴보세요.</p>
+          <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <article class="flex flex-col items-start rounded-2xl border border-slate-200 bg-white p-5">
+              <h3 class="text-xl font-bold text-[#10264d]">건강과 간호 돌봄</h3>
+              <p class="my-3 text-base leading-relaxed text-slate-600">건강 상태와 복용 중인 약을 입소 상담에서 함께 확인합니다.</p>
+              <a href="https://blog.naver.com/PostList.naver?blogId=yescare2026_new&amp;categoryNo=50" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex min-h-11 items-center rounded font-bold text-[#10264d] underline underline-offset-4 focus-visible:ring-2 focus-visible:ring-amber-600">건강과 돌봄 소식 <span aria-hidden="true" class="ml-2">↗</span></a>
+            </article>
+            <article class="flex flex-col items-start rounded-2xl border border-slate-200 bg-white p-5">
+              <h3 class="text-xl font-bold text-[#10264d]">일상생활과 여가</h3>
+              <p class="my-3 text-base leading-relaxed text-slate-600">어르신의 생활을 돕고 함께 참여할 수 있는 여가 활동을 운영합니다.</p>
+              <a href="https://blog.naver.com/PostList.naver?blogId=yescare2026_new&amp;categoryNo=48" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex min-h-11 items-center rounded font-bold text-[#10264d] underline underline-offset-4 focus-visible:ring-2 focus-visible:ring-amber-600">행복한 일상 이야기 <span aria-hidden="true" class="ml-2">↗</span></a>
+            </article>
+            <article class="flex flex-col items-start rounded-2xl border border-slate-200 bg-white p-5">
+              <h3 class="text-xl font-bold text-[#10264d]">신체 활동과 작업치료</h3>
+              <p class="my-3 text-base leading-relaxed text-slate-600">움직임을 돕는 활동과 인지·작업 프로그램의 사례를 볼 수 있습니다.</p>
+              <a href="https://blog.naver.com/PostList.naver?blogId=yescare2026_new&amp;categoryNo=49" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex min-h-11 items-center rounded font-bold text-[#10264d] underline underline-offset-4 focus-visible:ring-2 focus-visible:ring-amber-600">재활·작업치료 소식 <span aria-hidden="true" class="ml-2">↗</span></a>
+            </article>
+            <article class="flex flex-col items-start rounded-2xl border border-slate-200 bg-white p-5">
+              <h3 class="text-xl font-bold text-[#10264d]">식사와 영양 관리</h3>
+              <p class="my-3 text-base leading-relaxed text-slate-600">요양원에서 제공하는 주간 식사와 간식을 식단표에서 확인할 수 있습니다.</p>
+              <a href="https://blog.naver.com/PostList.naver?blogId=yescare2026_new&amp;categoryNo=43" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex min-h-11 items-center rounded font-bold text-[#10264d] underline underline-offset-4 focus-visible:ring-2 focus-visible:ring-amber-600">주간 식단표 <span aria-hidden="true" class="ml-2">↗</span></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Admissions -->
+      <section data-detail="admission" id="admission" class="py-16 sm:py-24 bg-slate-50 border-t border-slate-200/70">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center max-w-3xl mx-auto mb-16">
             <span class="text-xs sm:text-sm font-bold text-amber-600">
               입소 절차 안내
             </span>
             <h2 class="text-2xl sm:text-4xl font-extrabold text-[#10264d] tracking-tight mt-1 break-keep">
-              방문 전, 세 가지만 확인하세요
+              입소 상담부터 시설 방문까지
             </h2>
             <p class="text-slate-500 text-sm sm:text-base mt-2 break-keep">
-              어르신께 필요한 돌봄과 희망 시기를 미리 정리해 두시면 상담이 더욱 신속하고 원활합니다.
+              전화 상담에서 입소 가능 여부와 방문 일정을 확인하실 수 있습니다.
             </p>
+            <a href="tel:15336598" class="mt-5 inline-flex min-h-11 items-center rounded-full bg-[#f2be42] px-5 py-2.5 font-extrabold text-[#10264d] hover:bg-amber-400 focus-visible:ring-2 focus-visible:ring-amber-600">입소·방문 상담 1533-6598</a>
           </div>
 
           <!-- 3 Steps -->
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <ol class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
             <!-- Step 1 -->
-            <div class="rounded-3xl p-8 bg-white border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow relative">
+            <li class="rounded-3xl p-8 bg-white border border-slate-200/80 shadow-sm">
               <div class="w-12 h-12 rounded-2xl bg-[#f2be42] text-[#10264d] font-black text-xl flex items-center justify-center mb-6 shadow-sm">
                 01
               </div>
               <h3 class="text-lg font-bold text-slate-900 mb-2 break-keep">
-                입소 가능 여부 및 등급 상담
+                전화 상담 준비
               </h3>
-              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed break-keep">
-                어르신의 건강 상태, 장기요양등급(1~5등급), 희망 입소 시기와 필요한 간호 돌봄 항목을 유선(1533-6598)으로 1차 상담합니다.
-              </p>
-            </div>
+              <ul class="list-disc space-y-1 pl-5 text-sm text-slate-600 leading-relaxed">
+                <li>건강 상태와 필요한 돌봄</li>
+                <li>장기요양등급 또는 신청 여부</li>
+                <li>희망 입소 시기</li>
+              </ul>
+            </li>
 
             <!-- Step 2 -->
-            <div class="rounded-3xl p-8 bg-white border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow relative">
+            <li class="rounded-3xl p-8 bg-white border border-slate-200/80 shadow-sm">
               <div class="w-12 h-12 rounded-2xl bg-[#f2be42] text-[#10264d] font-black text-xl flex items-center justify-center mb-6 shadow-sm">
                 02
               </div>
               <h3 class="text-lg font-bold text-slate-900 mb-2 break-keep">
-                예상 비용 산출 및 서류 확인
+                비용과 준비 서류 확인
               </h3>
-              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed break-keep">
-                본인부담률(일반 20%, 경감 8~12%, 기초수급자)에 따른 월간 예상 비용과 입소 시 필요한 필수 서류 및 검진 항목을 안내합니다.
+              <p class="text-sm text-slate-600 leading-relaxed break-keep">
+                장기요양인정서 등 가지고 계신 서류를 알려주세요. 필요한 서류와 검진, 식사비를 포함한 월 예상 비용은 상담에서 확인합니다.
               </p>
-            </div>
+              <a href="./index.html#care-cost" data-detail-link class="mt-3 inline-flex min-h-11 items-center font-bold text-[#10264d] underline underline-offset-4">비용 예시 보기</a>
+            </li>
 
             <!-- Step 3 -->
-            <div class="rounded-3xl p-8 bg-white border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow relative">
+            <li class="rounded-3xl p-8 bg-white border border-slate-200/80 shadow-sm">
               <div class="w-12 h-12 rounded-2xl bg-[#f2be42] text-[#10264d] font-black text-xl flex items-center justify-center mb-6 shadow-sm">
                 03
               </div>
               <h3 class="text-lg font-bold text-slate-900 mb-2 break-keep">
-                시설 방문 및 입소 계약
+                시설 방문과 입소 결정
               </h3>
-              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed break-keep">
-                편리한 날짜에 요양원을 방문하여 생활실, 로비, 면회실을 직접 둘러보고 최종 입소 계약 및 어르신 맞춤 돌봄 계획을 수립합니다.
+              <p class="text-sm text-slate-600 leading-relaxed break-keep">
+                전화로 방문 일정을 정한 뒤 생활실과 면회 공간을 둘러보고, 어르신에게 필요한 돌봄과 입소 절차를 상담하세요.
               </p>
-            </div>
-          </div>
+              <a href="./index.html#location" data-detail-link class="mt-3 inline-flex min-h-11 items-center font-bold text-[#10264d] underline underline-offset-4">오시는 길 확인</a>
+            </li>
+          </ol>
+        </div>
+      </section>
 
+      <section data-detail="faq-container" class="bg-slate-50 py-10 sm:py-14">
+        <div class="site-width">
           <!-- FAQ Accordion -->
           <div class="max-w-3xl mx-auto">
             <div class="text-center mb-8">
-              <h3 class="text-xl sm:text-2xl font-bold text-[#10264d]">
+              <h2 class="text-xl sm:text-2xl font-bold text-[#10264d]">
                 입소 전 자주 묻는 질문 (FAQ)
-              </h3>
+              </h2>
             </div>
 
             <div class="space-y-3" id="faq-container">
@@ -902,7 +427,9 @@
               <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden faq-item">
                 <button 
                   type="button" 
-                  class="w-full py-4 px-6 flex items-center justify-between text-left hover:bg-slate-50 transition-colors focus:outline-none"
+                  class="w-full py-4 px-6 flex items-center justify-between text-left hover:bg-slate-50 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-amber-700"
+                  aria-expanded="false"
+                  aria-controls="faq-answer-0"
                   onclick="toggleFaq(0)"
                 >
                   <span class="font-bold text-sm sm:text-base text-slate-800 pr-4 break-keep">
@@ -912,8 +439,8 @@
                     <polyline points="6 9 12 15 18 9"></polyline>
                   </svg>
                 </button>
-                <div class="faq-content hidden px-6 pb-5 pt-2 text-xs sm:text-sm text-slate-600 leading-relaxed bg-slate-50/50 border-t border-slate-100 break-keep">
-                  네, 가능합니다. 등급 신청 절차가 처음이신 보호자분들을 위해 국민건강보험공단 장기요양인정 신청 절차 및 소견서 발급 방법을 친절하게 안내해 드립니다. 입소 희망 시기에 맞춰 미리 상담을 받아두시면 등급 판정 즉시 신속하게 입소하실 수 있습니다.
+                <div id="faq-answer-0" class="faq-content hidden px-6 pb-5 pt-2 text-xs sm:text-sm text-slate-600 leading-relaxed bg-slate-50/50 border-t border-slate-100 break-keep">
+                  네, 가능합니다. 등급 신청 절차가 처음이신 보호자분들을 위해 국민건강보험공단 장기요양인정 신청 절차 및 소견서 발급 방법을 친절하게 안내해 드립니다. 입소 가능 여부는 시설급여 인정 여부와 희망 일정에 따라 상담 후 확인하실 수 있습니다.
                 </div>
               </div>
 
@@ -921,7 +448,9 @@
               <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden faq-item">
                 <button 
                   type="button" 
-                  class="w-full py-4 px-6 flex items-center justify-between text-left hover:bg-slate-50 transition-colors focus:outline-none"
+                  class="w-full py-4 px-6 flex items-center justify-between text-left hover:bg-slate-50 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-amber-700"
+                  aria-expanded="false"
+                  aria-controls="faq-answer-1"
                   onclick="toggleFaq(1)"
                 >
                   <span class="font-bold text-sm sm:text-base text-slate-800 pr-4 break-keep">
@@ -931,8 +460,8 @@
                     <polyline points="6 9 12 15 18 9"></polyline>
                   </svg>
                 </button>
-                <div class="faq-content hidden px-6 pb-5 pt-2 text-xs sm:text-sm text-slate-600 leading-relaxed bg-slate-50/50 border-t border-slate-100 break-keep">
-                  요양원 비용은 국민건강보험공단에서 지원하는 노인장기요양보험 급여비용과 비급여비용(식사비, 간식비, 상급침실료 등)으로 구성됩니다. 장기요양 1~5등급에 따라 본인부담률(일반 20%, 경감대상자 8% 또는 12%, 기초생활수급자 0%)이 적용되며, 30일 기준 본인부담금과 식대를 합쳐 월 약 60만 원 ~ 80만 원대(일반 기준) 수준입니다. 본 페이지 상단의 [비용 간편 계산기]에서 상세 견적을 10초 만에 확인하실 수 있습니다.
+                <div id="faq-answer-1" class="faq-content hidden px-6 pb-5 pt-2 text-xs sm:text-sm text-slate-600 leading-relaxed bg-slate-50/50 border-t border-slate-100 break-keep">
+                  시설급여 본인부담금과 식사비·간식비 등 비급여 항목을 합산합니다. <a href="./index.html#care-cost" data-detail-link class="font-bold underline">비용 예시</a>에서 시설급여 부담금을 확인하고, 실제 적용 수가와 비급여 항목은 상담 시 확인해 주세요.
                 </div>
               </div>
 
@@ -940,7 +469,9 @@
               <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden faq-item">
                 <button 
                   type="button" 
-                  class="w-full py-4 px-6 flex items-center justify-between text-left hover:bg-slate-50 transition-colors focus:outline-none"
+                  class="w-full py-4 px-6 flex items-center justify-between text-left hover:bg-slate-50 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-amber-700"
+                  aria-expanded="false"
+                  aria-controls="faq-answer-2"
                   onclick="toggleFaq(2)"
                 >
                   <span class="font-bold text-sm sm:text-base text-slate-800 pr-4 break-keep">
@@ -950,7 +481,7 @@
                     <polyline points="6 9 12 15 18 9"></polyline>
                   </svg>
                 </button>
-                <div class="faq-content hidden px-6 pb-5 pt-2 text-xs sm:text-sm text-slate-600 leading-relaxed bg-slate-50/50 border-t border-slate-100 break-keep">
+                <div id="faq-answer-2" class="faq-content hidden px-6 pb-5 pt-2 text-xs sm:text-sm text-slate-600 leading-relaxed bg-slate-50/50 border-t border-slate-100 break-keep">
                   물론입니다. 어르신께서 직접 지내실 공간이므로 가족분들의 사전 방문을 적극 권장해 드립니다. 감염병 예방 및 어르신들의 생활 안정을 위해 방문 전 전화(1533-6598)로 일정을 미리 예약해 주시면 전담 복지사가 원활하게 시설을 안내해 드립니다.
                 </div>
               </div>
@@ -959,18 +490,20 @@
               <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden faq-item">
                 <button 
                   type="button" 
-                  class="w-full py-4 px-6 flex items-center justify-between text-left hover:bg-slate-50 transition-colors focus:outline-none"
+                  class="w-full py-4 px-6 flex items-center justify-between text-left hover:bg-slate-50 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-amber-700"
+                  aria-expanded="false"
+                  aria-controls="faq-answer-3"
                   onclick="toggleFaq(3)"
                 >
                   <span class="font-bold text-sm sm:text-base text-slate-800 pr-4 break-keep">
-                    Q. 입소 시 준비해야 할 서류와 필수 건강진단서는 무엇인가요?
+                    Q. 입소 시 어떤 서류와 검진을 준비하나요?
                   </span>
                   <svg class="w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <polyline points="6 9 12 15 18 9"></polyline>
                   </svg>
                 </button>
-                <div class="faq-content hidden px-6 pb-5 pt-2 text-xs sm:text-sm text-slate-600 leading-relaxed bg-slate-50/50 border-t border-slate-100 break-keep">
-                  장기요양인정서 사본, 표준장기요양이용계획서 사본, 어르신 및 보호자 신분증, 가족관계증명서, 주민등록등본이 필요합니다. 또한 단체 생활 안전을 위해 입소 전 감염성 질환 검사(결핵 흉부 X-ray, B형간염, 매독, 전염성 피부질환 검사 등)가 포함된 건강진단서를 제출해 주셔야 합니다.
+                <div id="faq-answer-3" class="faq-content hidden px-6 pb-5 pt-2 text-xs sm:text-sm text-slate-600 leading-relaxed bg-slate-50/50 border-t border-slate-100 break-keep">
+                  장기요양인정서 등 가지고 계신 서류를 상담 시 알려주세요. 필요한 서류와 검진 항목, 제출 시점은 입소 상담에서 확인하실 수 있습니다.
                 </div>
               </div>
 
@@ -978,7 +511,9 @@
               <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden faq-item">
                 <button 
                   type="button" 
-                  class="w-full py-4 px-6 flex items-center justify-between text-left hover:bg-slate-50 transition-colors focus:outline-none"
+                  class="w-full py-4 px-6 flex items-center justify-between text-left hover:bg-slate-50 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-amber-700"
+                  aria-expanded="false"
+                  aria-controls="faq-answer-4"
                   onclick="toggleFaq(4)"
                 >
                   <span class="font-bold text-sm sm:text-base text-slate-800 pr-4 break-keep">
@@ -988,8 +523,8 @@
                     <polyline points="6 9 12 15 18 9"></polyline>
                   </svg>
                 </button>
-                <div class="faq-content hidden px-6 pb-5 pt-2 text-xs sm:text-sm text-slate-600 leading-relaxed bg-slate-50/50 border-t border-slate-100 break-keep">
-                  노인전문간호사를 중심으로 한 간호팀이 매일 처방 약 복용을 철저히 확인하고 활력징후를 기록합니다. 격주로 협력병원 촉탁의사가 정기 방문 진료를 시행하며, 응급 상황 발생 시 24시간 연계 지정 종합병원 응급의료센터로 신속하게 이송 조치합니다.
+                <div id="faq-answer-4" class="faq-content hidden px-6 pb-5 pt-2 text-xs sm:text-sm text-slate-600 leading-relaxed bg-slate-50/50 border-t border-slate-100 break-keep">
+                  입소 상담 시 복용 중인 약과 치료 일정을 알려주세요. 복약 관리 방식과 응급 상황 대응 절차는 어르신의 상태에 맞춰 상담하실 수 있습니다.
                 </div>
               </div>
             </div>
@@ -997,131 +532,39 @@
         </div>
       </section>
 
-      <!-- ============================================================== -->
-      <!-- 9. FACILITY PHOTO SHOWCASE & GALLERY                           -->
-      <!-- ============================================================== -->
-      <section id="facility" class="py-16 sm:py-24 bg-white">
+      <section id="care-info" data-detail="care-cost" class="py-12 sm:py-16 bg-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="text-xs sm:text-sm font-bold text-amber-600 uppercase">
-              FACILITY ENVIRONMENT
-            </span>
-            <h2 class="text-2xl sm:text-4xl font-extrabold text-[#10264d] tracking-tight mt-1 break-keep">
-              밝고 쾌적한 시설 환경 둘러보기
-            </h2>
-            <p class="text-slate-500 text-sm sm:text-base mt-2 break-keep">
-              사진을 클릭하시면 큰 화면으로 자세히 살펴보실 수 있습니다.
-            </p>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Facility 1: Lobby -->
-            <div 
-              onclick="openGalleryModal(0)"
-              class="group cursor-pointer rounded-3xl overflow-hidden bg-slate-50 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all"
-            >
-              <div class="relative h-56 overflow-hidden">
-                <img 
-                  src="/assets/images/facility_4.jpg" 
-                  alt="1층 로비 & 안내 데스크" 
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-sm text-white text-xs font-bold">
-                  공용 공간
-                </span>
-              </div>
-              <div class="p-5">
-                <h3 class="font-bold text-[#10264d] text-base mb-1 group-hover:text-amber-600 transition-colors">
-                  1층 로비 & 안내 데스크
-                </h3>
-                <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed break-keep">
-                  따뜻한 우드 톤의 쾌적한 안내 공간으로 어르신과 가족분들이 처음 맞이하는 편안한 쉼터입니다.
-                </p>
-              </div>
-            </div>
-
-            <!-- Facility 2: Room -->
-            <div 
-              onclick="openGalleryModal(1)"
-              class="group cursor-pointer rounded-3xl overflow-hidden bg-slate-50 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all"
-            >
-              <div class="relative h-56 overflow-hidden">
-                <img 
-                  src="/assets/images/facility_2.jpg" 
-                  alt="햇살 가득한 생활실" 
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-sm text-white text-xs font-bold">
-                  생활 공간
-                </span>
-              </div>
-              <div class="p-5">
-                <h3 class="font-bold text-[#10264d] text-base mb-1 group-hover:text-amber-600 transition-colors">
-                  햇살 가득한 생활실 (2인실/4인실)
-                </h3>
-                <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed break-keep">
-                  넓은 채광창과 전동 침대, 넉넉한 수납공간을 갖추어 내 집 안방처럼 아늑하고 안전하게 머무실 수 있습니다.
-                </p>
-              </div>
-            </div>
-
-            <!-- Facility 3: Visiting Room -->
-            <div 
-              onclick="openGalleryModal(2)"
-              class="group cursor-pointer rounded-3xl overflow-hidden bg-slate-50 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all"
-            >
-              <div class="relative h-56 overflow-hidden">
-                <img 
-                  src="/assets/images/facility_3.jpg" 
-                  alt="프라이빗 가족 면회실" 
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-sm text-white text-xs font-bold">
-                  면회 공간
-                </span>
-              </div>
-              <div class="p-5">
-                <h3 class="font-bold text-[#10264d] text-base mb-1 group-hover:text-amber-600 transition-colors">
-                  프라이빗 가족 면회실
-                </h3>
-                <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed break-keep">
-                  가족들이 방문하여 편안하게 대화하고 추억을 나눌 수 있도록 정갈한 테이블과 의자를 배치하였습니다.
-                </p>
-              </div>
-            </div>
-
-            <!-- Facility 4: Building Exterior -->
-            <div 
-              onclick="openGalleryModal(3)"
-              class="group cursor-pointer rounded-3xl overflow-hidden bg-slate-50 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all"
-            >
-              <div class="relative h-56 overflow-hidden">
-                <img 
-                  src="/assets/images/facility_0.jpg" 
-                  alt="예스케어 대전 요양원 전경" 
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-sm text-white text-xs font-bold">
-                  외관 전경
-                </span>
-              </div>
-              <div class="p-5">
-                <h3 class="font-bold text-[#10264d] text-base mb-1 group-hover:text-amber-600 transition-colors">
-                  예스케어 대전 요양원 전경
-                </h3>
-                <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed break-keep">
-                  대전 대덕구 덕암로에 위치하여 접근성이 뛰어나며 푸른 유리 외벽과 최신 소방·안전 설비를 완비했습니다.
-                </p>
-              </div>
-            </div>
+          <div class="mx-auto max-w-3xl">
+            <article id="care-cost" class="flex flex-col items-start rounded-3xl border border-slate-200 bg-white p-6">
+              <h2 class="text-xl font-bold text-[#10264d]">시설급여 본인부담금 계산기</h2>
+              <dl class="my-3 space-y-2 text-slate-600">
+                <div>
+                  <dt class="inline font-bold text-[#10264d]">계산기에서 확인</dt>
+                  <dd class="inline">· 2026년 기준 30일 시설급여 본인부담금 예시</dd>
+                </div>
+                <div>
+                  <dt class="inline font-bold text-[#10264d]">전화 상담에서 확인</dt>
+                  <dd class="inline">· 식사비와 간식비 등 비급여 항목을 포함한 실제 비용</dd>
+                </div>
+              </dl>
+              <button type="button" onclick="openCalculatorModal()" class="mt-auto inline-flex min-h-11 items-center rounded-full border border-slate-300 px-5 py-2.5 font-bold text-[#10264d] hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-600">급여 본인부담금 계산기 열기</button>
+            </article>
           </div>
         </div>
       </section>
 
-      <!-- ============================================================== -->
-      <!-- 10. LOCATION & DIRECTIONS SECTION                              -->
-      <!-- ============================================================== -->
-      <section id="location" class="py-16 sm:py-24 bg-slate-50 border-t border-slate-200/80">
+      <section id="visit" data-detail="visit" class="visit-detail site-width" aria-labelledby="visit-title">
+        <div class="visit-card">
+          <p class="eyebrow">전화로 방문 일정 확인</p>
+          <h2 id="visit-title">상담 후 요양원을 둘러보세요</h2>
+          <p>입소 가능 여부와 방문 가능한 시간을 전화로 안내해 드립니다.</p>
+          <a class="site-button" href="tel:15336598">방문 문의 1533-6598</a>
+          <a class="text-link" href="./index.html#location" data-detail-link>오시는 길 <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
+
+      <!-- Directions -->
+      <section data-detail="location" id="location" class="py-16 sm:py-24 bg-slate-50 border-t border-slate-200/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center max-w-3xl mx-auto mb-16">
             <span class="text-xs sm:text-sm font-bold text-amber-600 uppercase">
@@ -1165,7 +608,7 @@
                     <a href="tel:15336598" class="text-base font-bold text-amber-600 hover:underline">
                       1533-6598
                     </a>
-                    <p class="text-xs text-slate-500 mt-0.5">상담 시간: 평일 09:00 ~ 18:00 (주말 사전 예약)</p>
+                    <p class="text-xs text-slate-500 mt-0.5">상담 및 방문 가능 시간은 전화로 확인해 주세요.</p>
                   </div>
                 </div>
 
@@ -1180,9 +623,7 @@
                   <div>
                     <h3 class="font-bold text-slate-900 text-base">교통 및 주차</h3>
                     <p class="text-xs text-slate-600 mt-1 break-keep">
-                      • 경부고속도로 신탄진IC에서 차량 5분<br />
-                      • 경부선 신탄진역에서 택시 기본요금 (약 5분)<br />
-                      • 요양원 건물 지상 전용 주차장 완비 (무료 주차)
+                      아래 지도에서 출발지 기준 경로를 확인하세요. 주차 안내는 방문 전에 전화로 문의해 주세요.
                     </p>
                   </div>
                 </div>
@@ -1190,12 +631,12 @@
 
               <div class="flex gap-3">
                 <a 
-                  href="https://map.naver.com/p/search/%EB%8C%80%EC%A0%84%EA%B4%91%EC%97%AD%EC%8B%9C%20%EB%8C%80%EB%8D%95%EA%B5%AC%20%EB%8D%95%EC%95%94%EB%A1%9C162%EB%B2%88%EA%B8%B8%2010" 
+                  href="https://map.naver.com/p/entry/place/1486703042"
                   target="_blank" 
                   rel="noopener noreferrer"
-                  class="flex-1 py-3 px-4 rounded-2xl bg-[#03c75a] hover:bg-[#02b350] text-white font-bold text-center text-sm shadow-sm transition-all"
+                  class="flex-1 py-3 px-4 rounded-2xl bg-[#087a49] hover:bg-[#06643c] text-white font-bold text-center text-sm shadow-sm transition-all"
                 >
-                  네이버 지도에서 보기
+                  네이버 지도
                 </a>
                 <a 
                   href="tel:15336598" 
@@ -1209,7 +650,7 @@
             <!-- Right Visual Card -->
             <div class="lg:col-span-7 rounded-3xl overflow-hidden border border-slate-200 shadow-md bg-white relative min-h-[360px] flex flex-col justify-end p-8">
               <img 
-                src="/assets/images/facility_0.jpg" 
+                src="./public/assets/images/facility_0.jpg"
                 alt="예스케어 대전 요양원 건물 전경" 
                 class="absolute inset-0 w-full h-full object-cover"
               />
@@ -1224,35 +665,9 @@
                 </h3>
                 <p class="text-xs sm:text-sm text-slate-200 leading-relaxed break-keep">
                   대전 대덕구 덕암로162번길 10 (상서동).<br />
-                  편리한 방문을 위해 사전에 전화(1533-6598)로 방문 시간을 예약해 주시면 따뜻한 차와 함께 시설을 정성껏 안내해 드립니다.
+                  생활실과 면회 공간을 보고 싶으시면 전화로 방문 일정을 문의해 주세요.
                 </p>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============================================================== -->
-      <!-- 11. PARTNER & CERTIFICATION BANNER                             -->
-      <!-- ============================================================== -->
-      <section class="py-8 bg-slate-100 border-y border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex flex-wrap items-center justify-around gap-6 text-xs sm:text-sm font-semibold text-slate-500">
-            <div class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-              <span>국민건강보험공단 노인장기요양기관</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-blue-500"></span>
-              <span>영업배상책임보험 가입 시설</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-              <span>소방·재난안전시설 정기점검 필</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-purple-500"></span>
-              <span>대전광역시 대덕구 인가 전문 요양시설</span>
             </div>
           </div>
         </div>
@@ -1262,42 +677,42 @@
     <!-- ============================================================== -->
     <!-- 12. FOOTER                                                     -->
     <!-- ============================================================== -->
-    <footer class="bg-[#0b1b36] text-white pt-16 pb-12 border-t border-slate-800">
+    <footer id="site-footer" class="bg-[#0b1b36] text-white pt-16 pb-12 border-t border-slate-800">
+      <svg width="0" height="0" class="absolute" aria-hidden="true" focusable="false">
+        <filter id="footer-logo-colors" color-interpolation-filters="sRGB">
+          <!-- Extract gold and navy by their red/blue difference. White letters become transparent. -->
+          <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 .953  0 0 0 0 .714  0 0 0 0 .075  1.18 0 -1.18 0 0" result="gold" />
+          <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  -4.9 0 4.9 0 0" result="white" />
+          <feMerge result="wordmark"><feMergeNode in="gold" /><feMergeNode in="white" /></feMerge>
+          <feComposite in="wordmark" in2="SourceAlpha" operator="in" />
+        </filter>
+      </svg>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-slate-800/80">
           <!-- Left: Brand Info -->
           <div class="md:col-span-5 space-y-4">
-            <div class="flex items-center gap-3">
-              <div class="h-10 w-auto flex items-center justify-center">
-                <img 
-                  src="/assets/images/yescare_logo_white_trimmed.png" 
-                  alt="YesCare! 예스케어 대전 요양원 로고" 
-                  class="h-9 w-auto object-contain"
-                />
-              </div>
-              <div class="flex flex-col">
-                <span class="text-xl font-black text-white tracking-tight flex items-center gap-1.5">
-                  <span>예스케어</span>
-                  <span class="text-amber-400">대전 요양원</span>
-                </span>
-                <span class="text-[10px] text-slate-400 tracking-wider">
-                  YesCare! Adult Day Health & Nursing Care
-                </span>
-              </div>
-            </div>
+            <figure class="w-full max-w-[15rem]">
+              <img
+                src="./public/assets/images/yescare_logo_trimmed.png"
+                alt="YesCare!"
+                width="1069"
+                height="472"
+                class="footer-brand-mark block h-auto w-full"
+              />
+              <figcaption lang="en" class="text-xs font-extrabold leading-relaxed text-white">
+                ADULT DAY HEALTH SERVICES
+              </figcaption>
+            </figure>
+            <p class="text-xl font-black tracking-tight">예스케어 <span class="text-amber-400">대전 요양원</span></p>
             <p class="text-xs text-slate-300 leading-relaxed max-w-sm break-keep">
-              노인전문간호사 총괄 24시간 생활 밀착 케어,<br class="hidden sm:inline" />
-              안전하고 쾌적한 1·2·4인실 맞춤형 생활 환경과<br class="hidden sm:inline" />
-              다양한 인지·여가·재활 프로그램을 제공하는 전문 노인요양시설입니다.
+              대전 대덕구 상서동에서 어르신의 일상생활을 지원하는 노인요양시설입니다.
             </p>
           </div>
 
           <!-- Center: Operating Hours -->
           <div class="md:col-span-4 space-y-2 text-xs text-slate-300">
             <div class="font-bold text-amber-400 text-sm mb-1">상담 및 운영 안내</div>
-            <div>상담시간: 평일 09:00 ~ 18:00 (점심시간 12:00 ~ 13:00)</div>
-            <div>주말 및 공휴일: 사전 전화 예약 시 방문 상담 가능</div>
-            <div>소방 및 재난 안전 정기 점검 필 · 배상책임보험 가입 시설</div>
+            <div>상담 및 방문 가능 시간은 전화로 확인해 주세요.</div>
           </div>
 
           <!-- Right: Contact -->
@@ -1362,7 +777,7 @@
             </div>
             <div>
               <h3 class="font-bold text-base text-white">2026 장기요양 본인부담금 간편 계산기</h3>
-              <p class="text-[11px] text-slate-300">등급 및 감경 혜택에 따른 예상 월 비용을 즉시 산출합니다.</p>
+              <p class="text-[11px] text-slate-300">30일 기준 시설급여 본인부담금 예시입니다.</p>
             </div>
           </div>
           <button 
@@ -1390,6 +805,7 @@
               <button type="button" onclick="selectGrade(4)" class="calc-grade-btn py-2.5 rounded-xl border font-bold transition-all text-xs border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-grade="4">4등급</button>
               <button type="button" onclick="selectGrade(5)" class="calc-grade-btn py-2.5 rounded-xl border font-bold transition-all text-xs border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-grade="5">5등급</button>
             </div>
+            <p class="mt-2 text-xs text-slate-600">3~5등급은 시설급여 이용이 인정된 경우에 적용됩니다.</p>
           </div>
 
           <!-- Rate Selector -->
@@ -1398,33 +814,20 @@
             <div class="grid grid-cols-2 gap-2" id="rate-buttons">
               <button type="button" onclick="selectRate(0.20)" class="calc-rate-btn p-3 rounded-xl border text-left font-bold transition-all border-amber-500 bg-amber-50 text-amber-900 shadow-sm" data-rate="0.20">
                 <div class="text-xs">일반 (20%)</div>
-                <div class="text-[10px] text-slate-500 font-normal">건강보험 일반 대상자</div>
+                <div class="text-[10px] text-slate-500 font-normal">일반 시설급여 부담률</div>
               </button>
               <button type="button" onclick="selectRate(0.12)" class="calc-rate-btn p-3 rounded-xl border text-left font-bold transition-all border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-rate="0.12">
                 <div class="text-xs">감경 대상 (12%)</div>
-                <div class="text-[10px] text-slate-500 font-normal">보험료 25~50% 이하</div>
+                <div class="text-[10px] text-slate-500 font-normal">12% 적용 대상자</div>
               </button>
               <button type="button" onclick="selectRate(0.08)" class="calc-rate-btn p-3 rounded-xl border text-left font-bold transition-all border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-rate="0.08">
                 <div class="text-xs">감경 대상 (8%)</div>
-                <div class="text-[10px] text-slate-500 font-normal">차상위·의료급여 2종</div>
+                <div class="text-[10px] text-slate-500 font-normal">8% 적용 대상자</div>
               </button>
               <button type="button" onclick="selectRate(0.00)" class="calc-rate-btn p-3 rounded-xl border text-left font-bold transition-all border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-rate="0.00">
-                <div class="text-xs">기초생활수급자 (0%)</div>
-                <div class="text-[10px] text-slate-500 font-normal">급여비용 100% 국비 지원</div>
+                <div class="text-xs">본인부담 면제 (0%)</div>
+                <div class="text-[10px] text-slate-500 font-normal">급여 본인부담 면제 대상자</div>
               </button>
-            </div>
-          </div>
-
-          <!-- Meals Option -->
-          <div>
-            <div class="flex items-center justify-between mb-2">
-              <label class="font-bold text-slate-800">3. 하루 식사 횟수</label>
-              <span class="text-xs text-slate-500">끼당 3,500원 (간식비 포함 1일 12,000원)</span>
-            </div>
-            <div class="grid grid-cols-3 gap-2" id="meal-buttons">
-              <button type="button" onclick="selectMeals(3)" class="calc-meal-btn py-2 rounded-xl border font-bold transition-all text-xs border-amber-500 bg-amber-50 text-amber-900 shadow-sm" data-meals="3">3식 (기본)</button>
-              <button type="button" onclick="selectMeals(2)" class="calc-meal-btn py-2 rounded-xl border font-bold transition-all text-xs border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-meals="2">2식</button>
-              <button type="button" onclick="selectMeals(1)" class="calc-meal-btn py-2 rounded-xl border font-bold transition-all text-xs border-slate-200 bg-white text-slate-700 hover:bg-slate-50" data-meals="1">1식</button>
             </div>
           </div>
 
@@ -1432,30 +835,20 @@
           <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/90 space-y-3">
             <div class="flex justify-between items-center text-xs text-slate-600">
               <span>장기요양 급여 총액 (30일 기준)</span>
-              <span id="calc-total-benefit" class="font-mono font-bold text-slate-800">2,612,400원</span>
+              <span id="calc-total-benefit" class="font-mono font-bold text-slate-800">2,792,100원</span>
             </div>
             <div class="flex justify-between items-center text-xs text-slate-600">
-              <span>국민건강보험공단 지원금</span>
-              <span id="calc-gov-benefit" class="font-mono font-bold text-emerald-600">- 2,089,920원</span>
+              <span>급여비용 중 지원분</span>
+              <span id="calc-gov-benefit" class="font-mono font-bold text-emerald-600">- 2,233,680원</span>
             </div>
             <div class="flex justify-between items-center text-xs text-slate-600">
               <span>급여 본인부담금</span>
-              <span id="calc-copay" class="font-mono font-bold text-slate-800">522,480원</span>
-            </div>
-            <div class="flex justify-between items-center text-xs text-slate-600 pb-2 border-b border-slate-200">
-              <span>비급여 식대 및 간식비 (30일)</span>
-              <span id="calc-meals-cost" class="font-mono font-bold text-slate-800">360,000원</span>
-            </div>
-            <div class="flex justify-between items-center pt-1">
-              <span class="font-black text-slate-900 text-sm sm:text-base">예상 월 본인부담금 합계</span>
-              <span id="calc-final-total" class="text-xl sm:text-2xl font-black text-amber-600 font-mono">
-                882,480원
-              </span>
+              <span id="calc-copay" class="font-mono font-bold text-slate-800">558,420원</span>
             </div>
           </div>
 
           <p class="text-[11px] text-slate-500 leading-normal break-keep">
-            * 상기 금액은 2026년 국민건강보험공단 노인요양시설 수가 고시 기준에 따른 예상 금액이며, 상급침실(1인실 등) 이용 여부나 처방 약제비 등에 따라 실제 청구 금액과 약간의 차이가 발생할 수 있습니다.
+            <a href="https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000285470" target="_blank" rel="noopener noreferrer" class="font-bold underline">보건복지부 고시 제44조</a>의 입소자 2.1명당 요양보호사 1명 이상 기준으로 계산한 예시입니다. 실제 적용 수가와 식사비 등 비급여 비용은 요양원에 문의해 주세요.
           </p>
         </div>
 
@@ -1475,7 +868,7 @@
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
             </svg>
-            <span>상담사 전화로 상세 견적 확인 (1533-6598)</span>
+            <span>시설 비용 문의 1533-6598</span>
           </a>
         </div>
       </div>
@@ -1484,12 +877,12 @@
     <!-- ============================================================== -->
     <!-- 14. MODAL: FACILITY PHOTO GALLERY LIGHTBOX                     -->
     <!-- ============================================================== -->
-    <div id="gallery-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+    <div id="gallery-modal" role="dialog" aria-modal="true" aria-labelledby="gallery-title" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
       <!-- Backdrop -->
       <div class="fixed inset-0 bg-black/85 backdrop-blur-md" onclick="closeGalleryModal()"></div>
 
       <!-- Modal Content Container -->
-      <div class="relative w-full max-w-4xl bg-slate-900 rounded-3xl shadow-2xl overflow-hidden z-10 animate-fade-in flex flex-col border border-slate-700">
+      <div class="relative w-full max-w-4xl max-h-full overflow-y-auto bg-slate-900 rounded-3xl shadow-2xl overflow-hidden z-10 animate-fade-in flex flex-col border border-slate-700">
         <!-- Top Bar -->
         <div class="px-6 py-4 flex items-center justify-between border-b border-slate-800 text-white">
           <div>
@@ -1510,10 +903,10 @@
         </div>
 
         <!-- Main Photo Viewer with Arrows -->
-        <div class="relative h-[400px] sm:h-[500px] bg-black flex items-center justify-center overflow-hidden">
+        <div class="relative h-[min(50dvh,400px)] sm:h-[min(56dvh,500px)] shrink-0 bg-black flex items-center justify-center overflow-hidden">
           <img 
             id="gallery-main-image" 
-            src="/assets/images/facility_4.jpg" 
+            src="./public/assets/images/facility_4.jpg"
             alt="시설 상세 사진" 
             class="max-w-full max-h-full object-contain"
           />
@@ -1521,8 +914,8 @@
           <!-- Prev Button -->
           <button 
             type="button" 
-            onclick="prevGalleryImage()" 
-            class="absolute left-4 p-3 rounded-full bg-black/50 hover:bg-black/80 text-white backdrop-blur-sm transition-all focus:outline-none"
+            onclick="moveGallery(-1)" data-gallery-step
+            class="absolute left-4 p-3 rounded-full bg-black/50 hover:bg-black/80 text-white backdrop-blur-sm transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
             aria-label="이전 사진"
           >
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
@@ -1533,8 +926,8 @@
           <!-- Next Button -->
           <button 
             type="button" 
-            onclick="nextGalleryImage()" 
-            class="absolute right-4 p-3 rounded-full bg-black/50 hover:bg-black/80 text-white backdrop-blur-sm transition-all focus:outline-none"
+            onclick="moveGallery(1)" data-gallery-step
+            class="absolute right-4 p-3 rounded-full bg-black/50 hover:bg-black/80 text-white backdrop-blur-sm transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
             aria-label="다음 사진"
           >
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
@@ -1548,7 +941,7 @@
           <p id="gallery-desc" class="text-sm text-slate-300 leading-relaxed break-keep mb-4"></p>
           
           <!-- Thumbnails Strip -->
-          <div class="grid grid-cols-4 gap-3" id="gallery-thumbs">
+          <div class="gallery-thumbnails" id="gallery-thumbs" aria-label="시설 사진 선택" role="group">
             <!-- Thumbs generated by script -->
           </div>
         </div>
@@ -1560,129 +953,111 @@
     <!-- ============================================================== -->
     <script>
       // -------------------------------------------------------------
-      // Mobile Navigation Menu Toggle
-      // -------------------------------------------------------------
-      function toggleMobileMenu() {
-        const menu = document.getElementById('mobile-menu');
-        const hamburgerIcon = document.getElementById('hamburger-icon');
-        const closeIcon = document.getElementById('close-icon');
-        if (menu.classList.contains('hidden')) {
-          menu.classList.remove('hidden');
-          hamburgerIcon.classList.add('hidden');
-          closeIcon.classList.remove('hidden');
-        } else {
-          menu.classList.add('hidden');
-          hamburgerIcon.classList.remove('hidden');
-          closeIcon.classList.add('hidden');
-        }
-      }
-
-      // -------------------------------------------------------------
       // FAQ Accordion Toggle
       // -------------------------------------------------------------
       function toggleFaq(index) {
         const items = document.querySelectorAll('.faq-item');
         items.forEach((item, idx) => {
+          const button = item.querySelector('button');
           const content = item.querySelector('.faq-content');
           const icon = item.querySelector('.faq-icon');
-          if (idx === index) {
-            const isCurrentlyHidden = content.classList.contains('hidden');
-            if (isCurrentlyHidden) {
-              content.classList.remove('hidden');
-              icon.classList.add('rotate-180', 'text-amber-600');
-            } else {
-              content.classList.add('hidden');
-              icon.classList.remove('rotate-180', 'text-amber-600');
-            }
-          } else {
-            content.classList.add('hidden');
-            icon.classList.remove('rotate-180', 'text-amber-600');
-          }
+          const isOpen = idx === index && content.classList.contains('hidden');
+          button.setAttribute('aria-expanded', String(isOpen));
+          content.classList.toggle('hidden', !isOpen);
+          icon.classList.toggle('rotate-180', isOpen);
+          icon.classList.toggle('text-amber-600', isOpen);
         });
       }
 
       // -------------------------------------------------------------
       // Facility Photo Lightbox Data & Logic
       // -------------------------------------------------------------
-      const facilityGallery = [
+      const facilityGalleries = new Map(Array.from(document.querySelectorAll('[data-facility-gallery]'), card => [
+        card.dataset.facilityGallery,
         {
-          id: 'lobby',
-          title: '1층 로비 & 안내 데스크',
-          description: '따뜻한 우드 톤의 쾌적한 안내 공간으로, 어르신과 가족분들이 처음 맞이하는 편안한 쉼터입니다.',
-          imageUrl: '/assets/images/facility_4.jpg',
-          tag: '공용 공간'
-        },
-        {
-          id: 'room',
-          title: '햇살 가득한 생활실 (2인실/4인실)',
-          description: '넓은 채광창과 전동 침대, 넉넉한 수납공간을 갖추어 내 집 안방처럼 아늑하고 안전하게 머무실 수 있습니다.',
-          imageUrl: '/assets/images/facility_2.jpg',
-          tag: '생활 공간'
-        },
-        {
-          id: 'visiting',
-          title: '프라이빗 가족 면회실',
-          description: '가족들이 방문하여 편안하게 대화하고 추억을 나눌 수 있도록 정갈한 테이블과 의자를 배치하였습니다.',
-          imageUrl: '/assets/images/facility_3.jpg',
-          tag: '면회 공간'
-        },
-        {
-          id: 'building',
-          title: '예스케어 대전 요양원 전경',
-          description: '대전 대덕구 덕암로에 위치하여 접근성이 뛰어나며, 푸른 유리 외벽과 최신 소방·안전 설비를 완비했습니다.',
-          imageUrl: '/assets/images/facility_0.jpg',
-          tag: '외관 전경'
+          title: card.querySelector('h3').textContent.trim(),
+          photos: Array.from(card.querySelectorAll('img'), image => ({
+            title: image.alt,
+            description: image.dataset.caption,
+            imageUrl: image.src
+          }))
         }
-      ];
-
+      ]));
+      const galleryDialog = document.getElementById('gallery-modal');
+      const galleryThumbnails = document.getElementById('gallery-thumbs');
+      let activeGallery;
       let currentGalleryIndex = 0;
+      let galleryTrigger = null;
 
-      function openGalleryModal(index) {
-        currentGalleryIndex = index || 0;
+      for (const button of document.querySelectorAll('[data-gallery-open]')) {
+        button.addEventListener('click', () => openGalleryModal(button));
+      }
+
+      function openGalleryModal(button) {
+        activeGallery = facilityGalleries.get(button.dataset.galleryOpen);
+        currentGalleryIndex = 0;
+        galleryTrigger = button;
+        const hasMorePhotos = activeGallery.photos.length > 1;
+        for (const control of galleryDialog.querySelectorAll('[data-gallery-step]')) control.hidden = !hasMorePhotos;
+        galleryThumbnails.hidden = !hasMorePhotos;
+        galleryThumbnails.replaceChildren();
+        if (hasMorePhotos) {
+          activeGallery.photos.forEach((photo, index) => {
+            const thumb = document.createElement('button');
+            thumb.type = 'button';
+            thumb.setAttribute('aria-label', photo.title);
+            const image = document.createElement('img');
+            image.src = photo.imageUrl;
+            image.alt = '';
+            image.loading = 'lazy';
+            thumb.appendChild(image);
+            thumb.addEventListener('click', () => {
+              currentGalleryIndex = index;
+              updateGalleryUI();
+            });
+            galleryThumbnails.appendChild(thumb);
+          });
+        }
+
+        galleryDialog.classList.remove('hidden');
         updateGalleryUI();
-        document.getElementById('gallery-modal').classList.remove('hidden');
         document.body.classList.add('overflow-hidden');
+        galleryDialog.querySelector('button').focus();
       }
 
       function closeGalleryModal() {
-        document.getElementById('gallery-modal').classList.add('hidden');
+        if (galleryDialog.classList.contains('hidden')) return;
+        galleryDialog.classList.add('hidden');
         document.body.classList.remove('overflow-hidden');
+        galleryTrigger?.focus();
+        galleryTrigger = null;
       }
 
-      function prevGalleryImage() {
-        currentGalleryIndex = (currentGalleryIndex - 1 + facilityGallery.length) % facilityGallery.length;
-        updateGalleryUI();
-      }
-
-      function nextGalleryImage() {
-        currentGalleryIndex = (currentGalleryIndex + 1) % facilityGallery.length;
+      function moveGallery(step) {
+        const count = activeGallery.photos.length;
+        if (count < 2) return;
+        currentGalleryIndex = (currentGalleryIndex + step + count) % count;
         updateGalleryUI();
       }
 
       function updateGalleryUI() {
-        const item = facilityGallery[currentGalleryIndex];
+        const { title, photos } = activeGallery;
+        const item = photos[currentGalleryIndex];
         document.getElementById('gallery-title').textContent = item.title;
-        document.getElementById('gallery-tag').textContent = item.tag;
+        const counter = document.getElementById('gallery-tag');
+        counter.hidden = photos.length === 1;
+        counter.textContent = title + ' · ' + (currentGalleryIndex + 1) + ' / ' + photos.length;
         document.getElementById('gallery-desc').textContent = item.description;
-        document.getElementById('gallery-main-image').src = item.imageUrl;
-        document.getElementById('gallery-main-image').alt = item.title;
+        const photo = document.getElementById('gallery-main-image');
+        photo.src = item.imageUrl;
+        photo.alt = item.title;
 
-        // Render Thumbnails
-        const thumbsContainer = document.getElementById('gallery-thumbs');
-        thumbsContainer.innerHTML = '';
-        facilityGallery.forEach((photo, idx) => {
-          const btn = document.createElement('button');
-          btn.type = 'button';
-          btn.className = `relative h-14 sm:h-16 rounded-xl overflow-hidden border-2 transition-all ${
-            idx === currentGalleryIndex ? 'border-amber-400 scale-95 ring-2 ring-amber-400/50' : 'border-transparent opacity-60 hover:opacity-100'
-          }`;
-          btn.onclick = () => {
-            currentGalleryIndex = idx;
-            updateGalleryUI();
-          };
-          btn.innerHTML = `<img src="${photo.imageUrl}" alt="${photo.title}" class="w-full h-full object-cover">`;
-          thumbsContainer.appendChild(btn);
-        });
+        for (const button of galleryThumbnails.children) button.removeAttribute('aria-current');
+        const current = galleryThumbnails.children[currentGalleryIndex];
+        if (current) {
+          current.setAttribute('aria-current', 'true');
+          galleryThumbnails.scrollLeft = current.offsetLeft - (galleryThumbnails.clientWidth - current.offsetWidth) / 2;
+        }
       }
 
       // -------------------------------------------------------------
@@ -1690,16 +1065,15 @@
       // -------------------------------------------------------------
       // Daily Long-term Care Benefit Fees by Grade (2026 National Health Insurance Standards)
       const dailyBenefitFees = {
-        1: 87080,
-        2: 80720,
-        3: 75780,
-        4: 75780,
-        5: 75780
+        1: 93070,
+        2: 86340,
+        3: 81540,
+        4: 81540,
+        5: 81540
       };
 
       let selectedGrade = 1;
       let selectedRate = 0.20;
-      let selectedMeals = 3;
 
       function openCalculatorModal() {
         document.getElementById('calculator-modal').classList.remove('hidden');
@@ -1736,54 +1110,40 @@
         calculateCosts();
       }
 
-      function selectMeals(meals) {
-        selectedMeals = meals;
-        document.querySelectorAll('.calc-meal-btn').forEach(btn => {
-          if (parseInt(btn.dataset.meals) === meals) {
-            btn.className = 'calc-meal-btn py-2 rounded-xl border font-bold transition-all text-xs border-amber-500 bg-amber-50 text-amber-900 shadow-sm';
-          } else {
-            btn.className = 'calc-meal-btn py-2 rounded-xl border font-bold transition-all text-xs border-slate-200 bg-white text-slate-700 hover:bg-slate-50';
-          }
-        });
-        calculateCosts();
-      }
-
       function calculateCosts() {
         const days = 30;
-        const dailyFee = dailyBenefitFees[selectedGrade] || 87080;
+        const dailyFee = dailyBenefitFees[selectedGrade];
         const totalBenefit = dailyFee * days;
         const copay = Math.round(totalBenefit * selectedRate);
         const govBenefit = totalBenefit - copay;
 
-        // Meal computation: 3,500 KRW per meal + 1,500 KRW snack fee
-        const mealPrice = 3500;
-        const snackPrice = 1500;
-        const dailyMealCost = (selectedMeals * mealPrice) + snackPrice;
-        const monthlyMealCost = dailyMealCost * days;
-
-        const grandTotal = copay + monthlyMealCost;
-
         document.getElementById('calc-total-benefit').textContent = totalBenefit.toLocaleString() + '원';
         document.getElementById('calc-gov-benefit').textContent = '- ' + govBenefit.toLocaleString() + '원';
         document.getElementById('calc-copay').textContent = copay.toLocaleString() + '원';
-        document.getElementById('calc-meals-cost').textContent = monthlyMealCost.toLocaleString() + '원';
-        document.getElementById('calc-final-total').textContent = grandTotal.toLocaleString() + '원';
       }
 
-      // Keyboard navigation (ESC closes modal, Arrow keys in gallery)
       window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
+          if (e.defaultPrevented) return;
           closeCalculatorModal();
           closeGalleryModal();
-        } else if (e.key === 'ArrowLeft') {
-          const gallery = document.getElementById('gallery-modal');
-          if (!gallery.classList.contains('hidden')) {
-            prevGalleryImage();
-          }
-        } else if (e.key === 'ArrowRight') {
-          const gallery = document.getElementById('gallery-modal');
-          if (!gallery.classList.contains('hidden')) {
-            nextGalleryImage();
+          return;
+        }
+        if (galleryDialog.classList.contains('hidden')) return;
+
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+          e.preventDefault();
+          moveGallery(e.key === 'ArrowLeft' ? -1 : 1);
+        } else if (e.key === 'Tab') {
+          const buttons = Array.from(galleryDialog.querySelectorAll('button')).filter(button => !button.hidden);
+          const first = buttons[0];
+          const last = buttons[buttons.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
           }
         }
       });

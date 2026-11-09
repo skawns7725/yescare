@@ -5,7 +5,17 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    base: './',
     plugins: [react(), tailwindcss()],
+    build: {
+      rolldownOptions: {
+        input: {
+          home: path.resolve(import.meta.dirname, 'index.html'),
+          careTeam: path.resolve(import.meta.dirname, 'care-team.html'),
+          careGuide: path.resolve(import.meta.dirname, 'care-guide.html'),
+        },
+      },
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
